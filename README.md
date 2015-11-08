@@ -1,2 +1,2 @@
 # dotfiles
-Collection of dot files.
+Home of dot files.
