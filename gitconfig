@@ -1,0 +1,9 @@
+[user]
+	name = Hyunchel Kim
+	email = hyunchelkk@gmail.com
+
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
