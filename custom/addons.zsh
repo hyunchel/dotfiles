@@ -6,6 +6,9 @@ export PATH="/usr/local/opt/icu4c/bin:$PATH"
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# Custom GOPATh
+# Custom GOPATH
 export GOPATH=$HOME/Development/golang
 export PATH=$PATH:$(go env GOPATH)/bin
+
+# rbenv
+eval "$(rbenv init -)"

@@ -9,12 +9,14 @@ cp ./gitconfig ~/.gitconfig
 cp -r ./vim ~/.vim/
 
 # Enable OMZ custom scripts if possible.
-if [$ZSH -eq ""]
+if [ "$ZSH" == "" ]
 then
     cat ./custom/*.zsh >> bashrc
     cp ./bashrc ~/.bashrc
+    source ~/.bashrc
 else
     # Move all OMZ custom files into OMZ directory.
     cp ./custom/*.zsh $ZSH/custom/
+    source ~/.zshrc
 fi
 
