@@ -1,15 +1,24 @@
-# Pieces to clean up
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export NVM_DIR="/Users/hyunchelkim/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
 # Aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 alias vi='vim'
+
+# added by Miniconda2 4.3.21 installer
+# export PATH="/Users/hyunchel/Development/miniconda2/bin:$PATH"
+# added by Miniconda3 installer
+export PATH="/Users/hyunchelkim/miniconda3/bin:$PATH"
+
+# export PATH="/usr/local/opt/node@6/bin:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Custom GOPATH
+export GOPATH=$HOME/Development/golang
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# rbenv
+eval "$(rbenv init -)"
+
