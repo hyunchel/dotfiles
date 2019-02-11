@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+BASE=$(pwd)
+
+# dotfiles.
+ln -sfv "$BASE/vimrc" ~/.vimrc
+ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
+ln -sfv "$BASE/gitconfig" ~/.gitconfig
+ln -sfv "$BASE/gitignore" ~/.gitignore
+
+# Install VIM plugins
+git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
+
+# Move VIM
+ln -sfv "$BASE/colors" ~/.vim/colors
+
