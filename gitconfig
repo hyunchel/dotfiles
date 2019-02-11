@@ -9,4 +9,5 @@
 	st = status
 
 [core]
+    editor = vim
 	excludesfile = ~/.gitignore

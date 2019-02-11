@@ -2,7 +2,8 @@
 
 BASE=$(pwd)
 
-# dotfiles.
+# dotfiles
+ln -sfv "$BASE/bashrc" ~/.bashrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitconfig" ~/.gitconfig
@@ -12,5 +13,22 @@ ln -sfv "$BASE/gitignore" ~/.gitignore
 git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 
 # Move VIM
+rm -rf ~/.vim/colors
 ln -sfv "$BASE/colors" ~/.vim/colors
 
+# Homebrew
+if [ "$PLATFORM" = Darwin ]; then
+    # We need Homebrew
+    [ -z "$(which brew)" ] &&
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    # Install favorite tools.
+    brew install \
+       vim go python \
+       git wget mosh jq tree \
+       hugo
+
+   # Some work stuff.
+   # redis pgcli mycli \
+   # httpie nvm kubernetes-cli kubernetes-helm
+fi
