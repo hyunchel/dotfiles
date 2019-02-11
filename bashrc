@@ -8,14 +8,16 @@ alias ku="kubectl"
 
 
 # Platform specific aliases
+
 if [ "$(uname -s)" = 'Darwin' ]; then
     alias ls='ls -G'
 fi
 
 
-# Custom GOPATH
+# Custom
 export GOPATH=$HOME/Development/golang
 export PATH=$PATH:$(go env GOPATH)/bin
+export EDITOR=vim
 
 
 # Requires brew to install things.
