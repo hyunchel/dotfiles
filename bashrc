@@ -26,14 +26,18 @@ export PATH=~/miniconda3/bin:$PATH
 # Requires brew to install things
 
 ## NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+if [ -f $(brew --prefix nvm)/nvm.sh ]; then
+    . $(brew --prefix nvm)/nvm.sh
+    export NVM_DIR=~/.nvm
+fi
 
 
 # Work
 
 ## And and remove keys from the SSH Agent. Set to 8 hours
-. ~/.config/rex/rex.sh
+if [ -f ~/.config/rex/rex.sh ]; then
+    . ~/.config/rex/rex.sh
+fi
 
 export BITBUCKET_USER=hyunchel
 export WORK_USER="hkim"

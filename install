@@ -5,6 +5,7 @@ PLATFORM=$(uname -s)
 
 # dotfiles
 ln -sfv "$BASE/bashrc" ~/.bashrc
+ln -sfv "$BASE/bash_profile" ~/.bash_profile
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitconfig" ~/.gitconfig
