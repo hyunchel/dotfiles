@@ -15,7 +15,7 @@ fi
 
 
 # Custom
-export GOPATH=$HOME/Development/golang
+export GOPATH=$HOME/gosrc
 export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
 
