@@ -79,5 +79,5 @@ set colorcolumn=100
 let g:go_template_autocreate = 0
 
 
-:ia pdb import pdb;pdb.set_trace()
+:ia pdb; import pdb;pdb.set_trace()
 

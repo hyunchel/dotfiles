@@ -7,6 +7,11 @@ alias ll='ls -l'
 alias ku="kubectl"
 
 
+ff() {
+    grep -Iinr --color=always --exclude=*~ $1 .
+}
+
+
 # Platform specific aliases
 
 if [ "$(uname -s)" = 'Darwin' ]; then
