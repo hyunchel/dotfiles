@@ -21,6 +21,9 @@ mkdir -p ~/.vim
 rm -rf ~/.vim/colors
 ln -sfv "$BASE/colors" ~/.vim/colors
 
+# Golang
+mkdir -p ~/gosrc
+
 # Homebrew
 if [ "$PLATFORM" = Darwin ]; then
     # We need Homebrew
