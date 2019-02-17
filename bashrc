@@ -3,6 +3,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 alias vi='vim'
+alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -l'
 alias ku="kubectl"
 
