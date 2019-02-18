@@ -80,4 +80,5 @@ let g:go_template_autocreate = 0
 
 
 :ia pdb; import pdb;pdb.set_trace()
+:ia #!! #! /usr/bin/env bash
 

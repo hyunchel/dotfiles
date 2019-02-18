@@ -24,6 +24,11 @@ ln -sfv "$BASE/colors" ~/.vim/colors
 # Golang
 mkdir -p ~/gosrc
 
+
+if [ "$PLATFORM" = Linux ]; then
+    sudo yum install -y gcc ctags
+fi
+
 # Homebrew
 if [ "$PLATFORM" = Darwin ]; then
     # We need Homebrew
@@ -33,7 +38,7 @@ if [ "$PLATFORM" = Darwin ]; then
     # Install favorite tools.
     brew install \
        vim go python \
-       git wget mosh jq tree \
+       git wget mosh jq tree pgcli ctags \
        hugo
 
    # Some work stuff.
