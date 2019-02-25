@@ -9,7 +9,7 @@ alias ku="kubectl"
 
 
 ff() {
-    grep -Iinr --color=always --exclude=*~ $1 .
+    grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude='.coverage' --exclude='tags' $1 .
 }
 
 
