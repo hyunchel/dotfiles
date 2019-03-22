@@ -21,6 +21,7 @@ fi
 
 
 # Custom
+export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gosrc
 export PATH=$PATH:$(go env GOPATH)/bin

@@ -51,6 +51,7 @@ filetype indent on
 " misc
 set number
 set colorcolumn=100
+set tags=../tags
 
 " vim-go options
 let g:go_template_autocreate = 0
