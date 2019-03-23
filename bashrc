@@ -14,11 +14,9 @@ ff() {
 
 
 # Platform specific aliases
-
 if [ "$(uname -s)" = 'Darwin' ]; then
     alias ls='ls -G'
 fi
-
 
 # Custom
 export PATH=$PATH:~/bin
@@ -27,9 +25,14 @@ export GOPATH=$HOME/gosrc
 export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
 
+# PS1
+. ~/.git-prompt.sh
+
+PS1="\[\033[38;5;218m\]\u\[\033[38;5;15m\]@\[\033[38;5;161m\]\h\[\033[38;5;15m\]:"
+export PS1="$PS1\w\[\033[38;5;99m\]$(__git_ps1 "(%s)")\033[38;5;120m\]$ \[\033[0m\]"
+
 ## Python
 export PATH=~/miniconda3/bin:$PATH
-
 
 # Requires brew to install things
 

@@ -25,6 +25,10 @@ ln -sfv "$BASE/colors" ~/.vim/colors
 # Golang
 mkdir -p ~/gosrc
 
+# git-prompt
+if [ ! -e ~/.git-prompt.sh ]; then
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+fi
 
 if [ "$PLATFORM" = Linux ]; then
     sudo yum install -y gcc ctags
