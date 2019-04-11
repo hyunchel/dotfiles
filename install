@@ -11,6 +11,9 @@ ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitconfig" ~/.gitconfig
 ln -sfv "$BASE/gitignore" ~/.gitignore
 # configs
+mkdir -p ~/.config/hyunchel
+mkdir -p ~/.config/pgcli
+mkdir -p ~/.config/mycli
 ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
 ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 
@@ -48,7 +51,7 @@ if [ "$PLATFORM" = Darwin ]; then
 
     # Install favorite tools.
     brew install \
-       vim go python \
+       vim tmux go python \
        git wget mosh jq tree pgcli ctags \
        hugo
 
