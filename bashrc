@@ -70,3 +70,5 @@ fi
 if [ -f ~/.config/rex/rex.sh ]; then
     . ~/.config/rex/rex.sh
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

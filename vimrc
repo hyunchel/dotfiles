@@ -56,6 +56,9 @@ set tags=../tags
 " vim-go options
 let g:go_template_autocreate = 0
 
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+
 " quick maps
 :ia pdb; import pdb;pdb.set_trace()
 :ia #!! #! /usr/bin/env bash
