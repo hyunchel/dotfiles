@@ -4,8 +4,8 @@ BASE=$(pwd)
 PLATFORM=$(uname -s)
 
 # dotfiles
-# ln -sfv "$BASE/bashrc" ~/.bashrc
-# ln -sfv "$BASE/bash_profile" ~/.bash_profile
+ln -sfv "$BASE/bashrc" ~/.bashrc
+ln -sfv "$BASE/bash_profile" ~/.bash_profile
 ln -sfv "$BASE/inputrc" ~/.inputrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
@@ -43,20 +43,20 @@ fi
 # ZSH...
 
 # Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install Powerline font(required by Spaceship)
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
+# git clone https://github.com/powerline/fonts.git --depth=1
+# cd fonts
+# ./install.sh
+# cd ..
+# rm -rf fonts
 
 # Install ZSH customs
-ln -sfv "$BASE/zsh/custom" ~/.oh-my-zsh/custom
+# ln -sfv "$BASE/zsh/custom" ~/.oh-my-zsh/custom
 
 # Overwrite ZSHRC
-ln -sfv "$BASE/zsh/zshrc" ~/.zshrc
+# ln -sfv "$BASE/zsh/zshrc" ~/.zshrc
 
 
 # CTAGS
