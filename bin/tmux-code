@@ -1,0 +1,19 @@
+#! /usr/bin/env sh 
+session="tmux-code"
+targetDir=$PWD
+
+tmux start-server
+
+# Coding console.
+tmux new-session -d -s $session -n code
+tmux send-keys "cd $targetDir;vim" C-m
+
+tmux new-window -n make
+tmux send-keys "cd $targetDir" C-m
+
+tmux new-window -n test
+tmux send-keys "cd $targetDir;make help" C-m
+
+tmux select-window -t code
+
+tmux attach -t $session

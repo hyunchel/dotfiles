@@ -18,6 +18,8 @@ mkdir -p ~/.config/mycli
 ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
 ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 
+cp -r "$BASE/bin/" ~/bin/
+
 # Install VIM plugins
 git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 

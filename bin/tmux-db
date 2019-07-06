@@ -1,0 +1,18 @@
+#! /usr/bin/env sh 
+session="db"
+
+tmux start-server
+
+# Database console.
+tmux new-session -d -s $session -n posgres
+tmux send-keys "pgProd" C-m
+
+tmux new-window -n mysql
+tmux send-keys "msProd" C-m
+
+tmux new-window -n redis
+tmux send-keys "redisProd" C-m
+
+tmux select-window -t postgres
+
+tmux attach -t $session

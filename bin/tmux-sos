@@ -1,0 +1,19 @@
+#! /usr/bin/env sh 
+session="sos"
+
+tmux start-server
+
+# SOS console.
+# The idea to spin up loggings and print out basic information.
+tmux new-session -d -s $session -n datadog
+tmux send-keys "dog" C-m
+
+tmux new-window -n papertrail
+tmux send-keys "papertrail" C-m
+
+tmux new-window -n k8s
+tmux send-keys "ku get pods -w" C-m
+
+tmux select-window -t datadog
+
+tmux attach -t $session
