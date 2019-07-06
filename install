@@ -39,7 +39,6 @@ if [ ! -e ~/.git-completion.bash ]; then
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-
 # ZSH...
 
 # Oh-my-zsh
@@ -72,6 +71,7 @@ if [ "$PLATFORM" = Darwin ]; then
 
     # Install favorite tools.
     brew install \
+       bash-completion@2 \
        vim tmux go python \
        git wget mosh jq tree pgcli ctags \
        redis pgcli mycli \
@@ -80,6 +80,4 @@ if [ "$PLATFORM" = Darwin ]; then
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
-
-
 fi

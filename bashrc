@@ -5,7 +5,6 @@ alias ....='cd ../../../'
 alias vi='vim'
 alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -l'
-alias ku="kubectl"
 
 
 ff() {
@@ -33,6 +32,10 @@ export PS1="$PS1\w\[\033[38;5;99m\]\$(__git_ps1 \"(%s)\")\[\033[38;5;120m\]$ \[\
 
 # Git
 . ~/.git-completion.bash
+
+# Bash-Completion V2
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 ## Python
 export PATH=~/miniconda3/bin:$PATH
@@ -72,3 +75,5 @@ if [ -f ~/.config/rex/rex.sh ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source <(kubectl completion bash)
