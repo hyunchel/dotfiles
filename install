@@ -80,6 +80,8 @@ if [ "$PLATFORM" = Darwin ]; then
        httpie nvm kubernetes-cli kubernetes-helm \
        hugo
 
+    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
     brew install fzf
     $(brew --prefix)/opt/fzf/install
 fi
