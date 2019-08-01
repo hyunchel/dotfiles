@@ -20,13 +20,16 @@ ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 
 cp -r "$BASE/bin/" ~/bin/
 
-# Install VIM plugins
-git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
-
 # Move VIM
 mkdir -p ~/.vim
 rm -rf ~/.vim/colors
 ln -sfv "$BASE/colors" ~/.vim/colors
+
+# Install VIM plugins
+# git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Golang
 mkdir -p ~/gosrc

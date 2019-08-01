@@ -65,3 +65,16 @@ set rtp+=/usr/local/opt/fzf
 
 " tab sizes
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
+
+
+" Just VIM Plug.
+call plug#begin('~/.vim/plugged')
+
+" Golang
+Plug 'fatih/vim-go'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+call plug#end()
