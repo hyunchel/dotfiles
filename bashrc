@@ -70,8 +70,8 @@ if [ -f ~/.config/arah/env.sh ]; then
     . ~/.config/arah/env.sh
 fi
 
-if [ -f ~/.config/rex/rex.sh ]; then
-    . ~/.config/rex/rex.sh
+if [ -f ~/.config/rexhomes/rex.sh ]; then
+    . ~/.config/rexhomes/rex.sh
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -70,11 +70,10 @@ autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
 " Just VIM Plug.
 call plug#begin('~/.vim/plugged')
 
-" Golang
+" Language
 Plug 'fatih/vim-go'
-
-" Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-jdaddy' "Json text objects
 
 call plug#end()
