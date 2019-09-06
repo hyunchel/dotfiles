@@ -11,12 +11,6 @@ ff() {
     grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude='.coverage' --exclude='tags' $1 .
 }
 
-
-# Platform specific aliases
-if [ "$(uname -s)" = 'Darwin' ]; then
-    alias ls='ls -G'
-fi
-
 # Custom
 export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/local/go/bin
@@ -78,3 +72,13 @@ fi
 
 source <(kubectl completion bash)
 source ~/bin/functions/*
+
+
+# Platform specific aliases
+if [ "$(uname -s)" = 'Darwin' ]; then
+    alias ls='ls -G'
+
+    # kube-ps1
+    source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+    PS1='$(kube_ps1)'$PS1
+fi

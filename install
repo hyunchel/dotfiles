@@ -85,6 +85,7 @@ if [ "$PLATFORM" = Darwin ]; then
        git wget mosh jq tree pgcli ctags \
        redis pgcli mycli \
        httpie nvm kubernetes-cli kubernetes-helm \
+       kube-ps1 kubectx \
        hugo
 
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
