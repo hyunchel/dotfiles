@@ -71,9 +71,14 @@ autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
 call plug#begin('~/.vim/plugged')
 
 " Language
+Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-jdaddy' "Json text objects
 
 call plug#end()
+
+
+" Short cuts
+nnoremap ., :TagbarToggle<CR>
