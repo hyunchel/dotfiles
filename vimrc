@@ -71,14 +71,25 @@ autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
 call plug#begin('~/.vim/plugged')
 
 " Language
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-jdaddy' "Json text objects
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 call plug#end()
 
 
 " Short cuts
 nnoremap ., :TagbarToggle<CR>
+
+" GoPls
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
