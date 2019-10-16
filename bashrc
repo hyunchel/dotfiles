@@ -34,18 +34,6 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 ## Python
 export PATH=~/miniconda3/bin:$PATH
 
-## Java
-export PATH=$PATH:"$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# Requires brew to install things
-
-## NVM
-if [ -f $(brew --prefix nvm)/nvm.sh ]; then
-    . $(brew --prefix nvm)/nvm.sh
-    export NVM_DIR=~/.nvm
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -54,7 +42,7 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f ~/.config/hyunchel/env ]; then
     . ~/.config/hyunchel/env
     alias starlight="ssh -i $STARLIGHT_PRIV hyunchel.inbox@$STARLIGHT_IP"
-    alias lonleyowl="ssh -i $LONELYOWL_PRIV hyunchel.inbox@$LONELYOWL_IP"
+    alias lonelyowl="ssh -i $LONELYOWL_PRIV hyunchel.inbox@$LONELYOWL_IP"
 fi
 
 # Work
@@ -70,9 +58,6 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-source <(kubectl completion bash)
-source ~/bin/functions/*
-
 
 # Platform specific aliases
 if [ "$(uname -s)" = 'Darwin' ]; then
@@ -81,4 +66,20 @@ if [ "$(uname -s)" = 'Darwin' ]; then
     # kube-ps1
     source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
     PS1='$(kube_ps1)'$PS1
+
+    # k8s
+    source <(kubectl completion bash)
+    source ~/bin/functions/*
+
+    ## Java
+    export PATH=$PATH:"$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+
+    # Requires brew to install things
+
+    ## NVM
+    if [ -f $(brew --prefix nvm)/nvm.sh ]; then
+        . $(brew --prefix nvm)/nvm.sh
+        export NVM_DIR=~/.nvm
+    fi
 fi
