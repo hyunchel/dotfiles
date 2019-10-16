@@ -14,6 +14,9 @@ tmux send-keys "cd $targetDir" C-m
 tmux new-window -n test
 tmux send-keys "cd $targetDir;make help" C-m
 
+tmux new-window -n k8s
+tmux send-keys "cd $targetDir;kubectl config get-contexts" C-m
+
 tmux select-window -t code
 
 tmux attach -t $session
