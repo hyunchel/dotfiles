@@ -6,6 +6,7 @@ PLATFORM=$(uname -s)
 # dotfiles
 ln -sfv "$BASE/bashrc" ~/.bashrc
 ln -sfv "$BASE/bash_profile" ~/.bash_profile
+ln -sfv "$BASE/zshrc" ~/.zshrc
 ln -sfv "$BASE/inputrc" ~/.inputrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
@@ -51,7 +52,11 @@ fi
 # ZSH...
 
 # Oh-my-zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Spaceship
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # Install Powerline font(required by Spaceship)
 # git clone https://github.com/powerline/fonts.git --depth=1
