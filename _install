@@ -4,8 +4,9 @@ BASE=$(pwd)
 PLATFORM=$(uname -s)
 
 # dotfiles
-ln -sfv "$BASE/zsh/custom" $ZSH_CUSTOM
-ln -sfv "$BASE/zsh/zshrc" ~/.zshrc
+ln -sfv "$BASE/bashrc" ~/.bashrc
+ln -sfv "$BASE/bash_profile" ~/.bash_profile
+ln -sfv "$BASE/zshrc" ~/.zshrc
 ln -sfv "$BASE/inputrc" ~/.inputrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
@@ -37,6 +38,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Golang
 mkdir -p ~/gosrc
+
+# git-prompt
+if [ ! -e ~/.git-prompt.sh ]; then
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+fi
+
+# git-completion
+if [ ! -e ~/.git-completion.bash ]; then
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+fi
 
 # ZSH...
 
@@ -78,6 +89,7 @@ if [ "$PLATFORM" = Darwin ]; then
 
     # Install favorite tools.
     brew install \
+       bash-completion@2 \
        vim tmux go python \
        git wget mosh jq tree pgcli ctags \
        redis pgcli mycli \
