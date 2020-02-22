@@ -8,7 +8,7 @@ alias ll='ls -l'
 
 
 ff() {
-    grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude='.coverage' --exclude='tags' $1 .
+    grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude='.coverage' --exclude='tags' "$1" .
 }
 
 # Custom

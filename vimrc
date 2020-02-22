@@ -37,6 +37,9 @@ if has('syntax') && has('eval')
 endif
 
 
+let mapleader = ' '
+let maplocalleader = '\\'
+
 " colors
 set background=dark
 syntax enable
@@ -80,12 +83,19 @@ Plug 'tpope/vim-jdaddy' "Json text objects
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 
 " Short cuts
 nnoremap ., :TagbarToggle<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>o :Files<CR>
+nnoremap <leader>h :Helptags<CR>
+nnoremap <leader>p :set paste<CR>
+nnoremap <leader>r :History/<CR>
 
 " GoPls
 " let g:go_def_mode='gopls'
