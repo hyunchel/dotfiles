@@ -71,7 +71,6 @@ iabbrev @@ hyunchel.inbox@gmail.com
 " tab sizes
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
 
-
 " Just VIM Plug.
 call plug#begin('~/.vim/plugged')
 
@@ -97,7 +96,7 @@ nnoremap ., :TagbarToggle<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>h :Helptags<CR>
-nnoremap <leader>p :set paste<CR>
+nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>r :History/<CR>
 
 " GoPls

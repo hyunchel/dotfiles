@@ -28,6 +28,12 @@ mkdir -p ~/.vim
 rm -rf ~/.vim/colors
 ln -sfv "$BASE/colors" ~/.vim/colors
 
+# Git hooks
+git config --global init.templatedir '~/.git_template'
+mkdir -p ~/.git_template/hooks
+cp -r "$BASE/git_template/hooks/" ~/.git_template/hooks/
+git config --global alias.ctags '!.git/hooks/ctags'
+
 # Install VIM plugins
 # git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 

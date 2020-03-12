@@ -6,6 +6,7 @@ alias vi='vim'
 alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -la'
 alias mv='mv -i'
+alias githooks='cp -r ~/.git_template/hooks/ .git/hooks/'
 
 
 ff() {
