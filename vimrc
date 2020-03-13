@@ -53,6 +53,7 @@ filetype indent on
 
 " misc
 set number
+set relativenumber
 set colorcolumn=100
 set tags=./tags,tags;
 
@@ -62,9 +63,10 @@ let g:go_template_autocreate = 0
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 
-" quick maps
-:ia pdb; import pdb;pdb.set_trace()
-:ia #!! #! /usr/bin/env bash
+" abbreviations
+iabbrev pdb; import pdb;pdb.set_trace()
+iabbrev #!! #! /usr/bin/env bash
+iabbrev @@ hyunchel.inbox@gmail.com
 
 " tab sizes
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
@@ -88,8 +90,9 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-
 " Short cuts
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap ., :TagbarToggle<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>o :Files<CR>
