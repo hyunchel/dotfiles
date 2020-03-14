@@ -85,3 +85,7 @@ if [ "$(uname -s)" = 'Darwin' ]; then
         export NVM_DIR=~/.nvm
     fi
 fi
+
+
+# MISC
+export BASH_SILENCE_DEPRECATION_WARNING=1
