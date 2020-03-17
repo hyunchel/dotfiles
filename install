@@ -6,7 +6,6 @@ PLATFORM=$(uname -s)
 # dotfiles
 ln -sfv "$BASE/bashrc" ~/.bashrc
 ln -sfv "$BASE/bash_profile" ~/.bash_profile
-ln -sfv "$BASE/zshrc" ~/.zshrc
 ln -sfv "$BASE/inputrc" ~/.inputrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
@@ -55,29 +54,6 @@ if [ ! -e ~/.git-completion.bash ]; then
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-# ZSH...
-
-# Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Spaceship
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-
-# Install Powerline font(required by Spaceship)
-# git clone https://github.com/powerline/fonts.git --depth=1
-# cd fonts
-# ./install.sh
-# cd ..
-# rm -rf fonts
-
-# Install ZSH customs
-# ln -sfv "$BASE/zsh/custom" ~/.oh-my-zsh/custom
-
-# Overwrite ZSHRC
-# ln -sfv "$BASE/zsh/zshrc" ~/.zshrc
-
-
 # CTAGS
 if [ "$PLATFORM" = Linux ]; then
     sudo apt-get install -y gcc ctags
@@ -108,3 +84,8 @@ if [ "$PLATFORM" = Darwin ]; then
     brew install fzf
     $(brew --prefix)/opt/fzf/install
 fi
+
+# Miscellaneous
+
+# t
+git clone --depth 1 https://github.com/sjl/t.git ~/.t
