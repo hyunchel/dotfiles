@@ -6,7 +6,16 @@
 	co = checkout
 	br = branch
 	ci = commit
-	st = status
+	st = status -s
+    df = diff
+    dfs = diff --staged
+    l = log --all --graph --stat --patch
+    ls = log --all --graph --oneline --decorate
+    ll = log --all --graph --pretty=fuller --decorate
+
+    last = log -1 HEAD
+    unstage = reset HEAD --
+
 	ctags = !.git/hooks/ctags
 
 [core]
