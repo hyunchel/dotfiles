@@ -26,6 +26,7 @@ cp -r "$BASE/bin/" ~/bin/
 mkdir -p ~/.vim
 rm -rf ~/.vim/colors
 ln -sfv "$BASE/colors" ~/.vim/colors
+ln -sfv "$BASE/plugin" ~/.vim/plugin
 
 # Git hooks
 git config --global init.templatedir '~/.git_template'
