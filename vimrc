@@ -1,5 +1,6 @@
 " vimrc file for Hyunchel Kim <hyunchel.inbox@gmail.com>
 
+" Preconfigured settings {{{
 " As VIM manual suggest...
 source $VIMRUNTIME/defaults.vim
 
@@ -35,11 +36,12 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-
+" }}}
 
 let mapleader = ' '
 let maplocalleader = '\\'
 
+" Basic settings {{{
 " colors
 set background=dark
 syntax enable
@@ -52,23 +54,25 @@ set expandtab
 filetype indent on
 
 " misc
+set hlsearch incsearch
 set number
 set relativenumber
 set colorcolumn=100
 set tags=./tags,tags;
+" }}}
 
-" vim-go options
-let g:go_template_autocreate = 0
-
-" If installed using Homebrew
-set rtp+=/usr/local/opt/fzf
-
-" abbreviations
+" Abbreviations {{{
 iabbrev pdb; import pdb;pdb.set_trace()
 iabbrev #!! #! /usr/bin/env bash
 iabbrev @@ hyunchel.inbox@gmail.com
+" }}}
 
-" languages
+" File settings {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
 augroup filetype_python
     autocmd!
     autocmd Filetype python setlocal tabstop=4 shiftwidth=4
@@ -103,48 +107,73 @@ augroup filetype_md
     " Statusline
     " autocmd FileType md setlocal statusline=%l
 augroup END
+" }}}
 
-" Statuslines
+" Statuslines {{{
 "set statusline=%4l,%-4c " Row and Colum
 "set statusline+=\ %P " Percentage
 "set statusline+=\ %m%r%h " Flags(modified, readonly, help)
 "set statusline+=%= " Switch to right side
 "set statusline+=%f\  " Relative path to the file
+" }}}
 
-" Just VIM Plug.
+" Just VIM Plug {{{
 call plug#begin('~/.vim/plugged')
 
 " Language
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'tpope/vim-jdaddy' "Json text objects
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'tpope/vim-jdaddy' "Json text objects
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'roxma/nvim-yarp'
+" Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
+" }}}
 
-" Short cuts
+" Mappings {{{
 nnoremap <space> <nop>
+nnoremap / /\v
+" Reopen last file
+nnoremap <leader><space> :execute "leftabove vsplit " . bufname("#")<CR>
+" Match trailing space
+nnoremap <leader>w :match Error /\v\s+\n/ <cr>
+nnoremap <leader>W :match<cr>
+" Clear highlight
+nnoremap <leader>c :nohlsearch<cr>
+" Quote word
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+" Easy access to VIMRC file
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" Browse quick-fix items
+nnoremap <leader>k :cprevious<cr>
+nnoremap <leader>j :cnext<cr>
+
+" Plugins
 nnoremap ., :TagbarToggle<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>h :Helptags<CR>
-nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>r :History/<CR>
 
+" Toggle paste
+nnoremap <leader>p :set paste!<CR>
+
+" Quote selected words
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 
+" Search selected words
+vnoremap <leader>/ y/<C-R>"<CR>
+
+" Easy escape
 inoremap jk <esc>
 inoremap <esc> <nop>
 
@@ -166,15 +195,27 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 " "around next/last brackets"
 onoremap an{ :<c-u>normal! f{va{<cr>
 onoremap al{ :<c-u>normal! F}va{<cr>
+" }}}
 
-
-" Overwrites existing ones. Not sure if I would keep them
+" Overwrites existing ones. Not sure if I would keep them {{{
 nnoremap H 0
 nnoremap L $
+" }}}
+
+" Golang settings {{{
+" vim-go options
+let g:go_template_autocreate = 0
 
 " GoPls
 " let g:go_def_mode='gopls'
 " let g:go_info_mode='gopls'
+" }}}
 
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+" Miscellaneous {{{
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+" }}}
+
