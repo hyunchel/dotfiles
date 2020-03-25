@@ -8,6 +8,8 @@ alias ll='ls -la'
 alias mv='mv -i'
 alias githooks='cp -r ~/.git_template/hooks/ .git/hooks/'
 alias t='python ~/.t/t.py --task-dir ~/.t --list tasks'
+alias cact="conda activate $(head environment.yml | grep 'name:' | awk '{print $2}')"
+alias cdea="conda deactivate"
 
 
 ff() {
