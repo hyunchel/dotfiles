@@ -8,12 +8,13 @@ alias ll='ls -la'
 alias mv='mv -i'
 alias githooks='cp -r ~/.git_template/hooks/ .git/hooks/'
 alias t='python ~/.t/t.py --task-dir ~/.t --list tasks'
+alias sbash='source ~/.bashrc'
 alias cact="conda activate $(head environment.yml | grep 'name:' | awk '{print $2}')"
 alias cdea="conda deactivate"
 
 
 ff() {
-    grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude='.coverage' --exclude='tags' "$1" .
+    grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude-dir='.mypy*' --exclude-dir='.build' --exclude='tags' "$1" .
 }
 
 # Custom
