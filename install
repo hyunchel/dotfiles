@@ -76,6 +76,8 @@ if [ "$PLATFORM" = Darwin ]; then
        kube-ps1 kubectx \
        hugo
 
+    brew cask install karabiner-elements caffeine hammerspoon
+
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
     brew install fzf
