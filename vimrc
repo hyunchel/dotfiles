@@ -117,21 +117,15 @@ augroup END
 "set statusline+=%f\  " Relative path to the file
 " }}}
 
-" Just VIM Plug {{{
+" Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-" Language
-" Plug 'ctrlpvim/ctrlp.vim'
-Plug 'majutsushi/tagbar'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
-" Plug 'tpope/vim-jdaddy' "Json text objects
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'roxma/nvim-yarp'
-" Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+    let g:tagbar_sort = 0
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 " }}}
