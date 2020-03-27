@@ -133,6 +133,18 @@ call plug#end()
 " Mappings {{{
 nnoremap <space> <nop>
 nnoremap / /\v
+
+" Insert a new line
+nnoremap <leader>o o<esc>
+nnoremap <leader>O O<esc>
+
+" Save file
+nnoremap <leader>s :update<cr>
+
+" Quit file
+nnoremap <leader>q :q<cr>
+nnoremap <leader>Q :qa!<cr>
+
 " Reopen last file
 nnoremap <leader><space> :execute "leftabove vsplit " . bufname("#")<CR>
 " Match trailing space
@@ -153,12 +165,12 @@ nnoremap <leader>j :cnext<cr>
 " Plugins
 nnoremap ., :TagbarToggle<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>o :Files<CR>
+nnoremap <leader>p :Files<CR>
 nnoremap <leader>h :Helptags<CR>
 nnoremap <leader>r :History/<CR>
 
 " Toggle paste
-nnoremap <leader>p :set paste!<CR>
+nnoremap <leader>v :set paste!<CR>
 
 " Quote selected words
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
