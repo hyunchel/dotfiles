@@ -1,15 +1,4 @@
-nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
-
-function! s:FoldColumnToggle()
-    if &foldcolumn
-        setlocal foldcolumn=0
-    else
-        setlocal foldcolumn=4
-    endif
-endfunction
-
-
-nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
+nnoremap <leader>f :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 
