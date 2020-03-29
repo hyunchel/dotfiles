@@ -25,6 +25,7 @@ cp -r "$BASE/bin/" ~/bin/
 # Move VIM
 mkdir -p ~/.vim
 rm -rf ~/.vim/colors
+rm -rf ~/.vim/plugin
 ln -sfv "$BASE/colors" ~/.vim/colors
 ln -sfv "$BASE/plugin" ~/.vim/plugin
 
