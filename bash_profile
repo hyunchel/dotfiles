@@ -1,3 +1,9 @@
+# https://superuser.com/questions/544989
+if [ -f /etc/profile ]; then
+    PATH=""
+    source /etc/profile
+fi
+
 . ~/.bashrc
 
 # >>> conda initialize >>>
