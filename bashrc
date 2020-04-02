@@ -41,38 +41,32 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 ## Python
 export PATH=~/miniconda3/bin:$PATH
 
+# Node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Personal
-if [ -f ~/.config/hyunchel/env ]; then
-    . ~/.config/hyunchel/env
-    alias starlight="ssh -i $STARLIGHT_PRIV hyunchel.inbox@$STARLIGHT_IP"
-    alias lonelyowl="ssh -i $LONELYOWL_PRIV hyunchel.inbox@$LONELYOWL_IP"
+# Workspaces
+if [ -f ~/.config/rexhomes/rex.sh ]; then
+    . ~/.config/rexhomes/rex.sh
+    git config --global --unset user.signingkey
+    git config --global --unset commit.gpgsign
 fi
 
-# Work
-
-## And and remove keys from the SSH Agent. Set to 8 hours
 if [ -f ~/.config/arah/env.sh ]; then
     . ~/.config/arah/env.sh
 fi
 
-if [ -f ~/.config/rexhomes/rex.sh ]; then
-    . ~/.config/rexhomes/rex.sh
+if [ -f ~/.config/hyunchel/env ]; then
+    . ~/.config/hyunchel/env
+    git config --global user.signingkey 5AB61588C2F10820
+    git config --global commit.gpgsign true
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-
-# Platform specific aliases
+# Platform specific stuffs
 if [ "$(uname -s)" = 'Darwin' ]; then
     alias ls='ls -G'
-
-    # kube-ps1
-    # source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-    # PS1='$(kube_ps1)'$PS1
 
     # k8s
     source <(kubectl completion bash)
@@ -93,6 +87,12 @@ fi
 
 
 # Others
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# sorry, no zsh yet
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 export GPG_TTY=$(tty)

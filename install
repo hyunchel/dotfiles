@@ -13,7 +13,7 @@ ln -sfv "$BASE/gitconfig" ~/.gitconfig
 ln -sfv "$BASE/gitignore" ~/.gitignore
 ln -sfv "$BASE/ctags" ~/.ctags
 
-# configs
+# Configs
 mkdir -p ~/.config/hyunchel
 mkdir -p ~/.config/pgcli
 mkdir -p ~/.config/mycli
@@ -22,25 +22,22 @@ ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 
 cp -r "$BASE/bin/" ~/bin/
 
-# Move VIM
+# Vim
 mkdir -p ~/.vim
 rm -rf ~/.vim/colors
 rm -rf ~/.vim/plugin
 ln -sfv "$BASE/colors" ~/.vim/colors
 ln -sfv "$BASE/plugin" ~/.vim/plugin
 
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Git hooks
 git config --global init.templatedir '~/.git_template'
 mkdir -p ~/.git_template/hooks
 cp -r "$BASE/git_template/hooks/" ~/.git_template/hooks/
 git config --global alias.ctags '!.git/hooks/ctags'
-
-# Install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Golang
-mkdir -p ~/gosrc
 
 # git-prompt
 if [ ! -e ~/.git-prompt.sh ]; then
@@ -74,7 +71,7 @@ if [ "$PLATFORM" = Darwin ]; then
        git wget mosh jq tree pgcli ctags \
        redis pgcli mycli \
        httpie nvm kubernetes-cli kubernetes-helm \
-       kube-ps1 kubectx \
+       kubectx \
        hugo
 
     brew cask install karabiner-elements caffeine hammerspoon
@@ -84,6 +81,9 @@ if [ "$PLATFORM" = Darwin ]; then
     brew install fzf
     $(brew --prefix)/opt/fzf/install
 fi
+
+# Golang
+mkdir -p ~/gosrc
 
 # Miscellaneous
 
