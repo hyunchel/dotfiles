@@ -1,0 +1,5 @@
+let mapleader = ' '
+
+set hlsearch incsearch
+set number
+set relativenumber
