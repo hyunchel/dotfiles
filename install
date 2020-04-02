@@ -11,10 +11,8 @@ ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitconfig" ~/.gitconfig
 ln -sfv "$BASE/gitignore" ~/.gitignore
-ln -sfv "$BASE/ctags" ~/.ctags
 
 # Configs
-mkdir -p ~/.config/hyunchel
 mkdir -p ~/.config/pgcli
 mkdir -p ~/.config/mycli
 ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
@@ -53,33 +51,27 @@ fi
 if [ "$PLATFORM" = Linux ]; then
     sudo apt-get install -y gcc ctags
 
-    # fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
 
 # Homebrew
 if [ "$PLATFORM" = Darwin ]; then
-    # We need Homebrew
     [ -z "$(which brew)" ] &&
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-    # Install favorite tools.
     brew install \
        bash-completion@2 \
        vim tmux go python \
-       git wget mosh jq tree pgcli ctags \
+       git wget mosh jq tree pgcli \
        redis pgcli mycli \
-       httpie nvm kubernetes-cli kubernetes-helm \
-       kubectx \
-       hugo
-
-    brew cask install karabiner-elements caffeine hammerspoon
-
-    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+       httpie kubernetes-cli kubernetes-helm kubectx
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
+
+    brew cask install karabiner-elements caffeine hammerspoon
+    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi
 
 # Golang
