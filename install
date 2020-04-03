@@ -8,6 +8,7 @@ ln -sfv "$BASE/bashrc" ~/.bashrc
 ln -sfv "$BASE/bash_profile" ~/.bash_profile
 ln -sfv "$BASE/inputrc" ~/.inputrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
+ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitconfig" ~/.gitconfig
 ln -sfv "$BASE/gitignore" ~/.gitignore
