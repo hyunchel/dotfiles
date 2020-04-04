@@ -19,6 +19,7 @@ ff() {
 
 # Custom
 export PATH=$PATH:~/bin
+export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gosrc
 export PATH=$PATH:$(go env GOPATH)/bin
