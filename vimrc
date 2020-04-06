@@ -107,12 +107,6 @@ augroup filetype_md
     " Statusline
     " autocmd FileType md setlocal statusline=%l
 augroup END
-
-augroup ctags
-    autocmd!
-    autocmd VimEnter * :call ConstructCtags()
-    autocmd VimLeave * :call DestroyCtags()
-augroup END
 " }}}
 
 " Statuslines {{{
