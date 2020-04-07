@@ -22,7 +22,6 @@ ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 cp -r "$BASE/bin/" ~/bin/
 
 # Vim
-mkdir -p ~/.vim
 rm -rf ~/.vim/colors
 rm -rf ~/.vim/plugin
 ln -sfv "$BASE/colors" ~/.vim/colors
@@ -79,6 +78,10 @@ fi
 mkdir -p ~/gosrc
 
 # Miscellaneous
+
+# hammerspoon
+rm -rf ~/.hammerspoon
+ln -sfv "$BASE/hammerspoon" ~/.hammerspoon
 
 # t
 git clone --depth 1 https://github.com/sjl/t.git ~/.t
