@@ -9,21 +9,16 @@ alias mv='mv -i'
 alias githooks='cp -r ~/.git_template/hooks/ .git/hooks/'
 alias t='python ~/.t/t.py --task-dir ~/.t --list tasks'
 alias sbash='source ~/.bashrc'
-alias cact="conda activate $(head environment.yml | grep 'name:' | awk '{print $2}')"
-alias cdea="conda deactivate"
-
-
-ff() {
-    grep -Iinr --color=always --exclude=*~ --exclude='./htmlcov/*' --exclude-dir='.mypy*' --exclude-dir='.build' --exclude='tags' "$1" .
-}
 
 # Custom
-export PATH=$PATH:~/bin
 export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gosrc
 export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
+
+for f in  ~/bin/functions/*.sh; do source $f; done
 
 # PS1
 . ~/.git-prompt.sh
@@ -71,7 +66,6 @@ if [ "$(uname -s)" = 'Darwin' ]; then
 
     # k8s
     source <(kubectl completion bash)
-    source ~/bin/functions/*
 
     ## Java
     export PATH=$PATH:"$HOME/.jenv/bin:$PATH"

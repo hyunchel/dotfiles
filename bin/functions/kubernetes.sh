@@ -1,7 +1,5 @@
 #! /usr/bin/env bash 
 
-# K8s stuffs
-
 function k8sContexts() {
     # List Services Sorted by Name
     kubectl get services --sort-by=.metadata.name
@@ -78,4 +76,8 @@ function k8sPodSecrets() {
 function k8sEvents() {
     # List Events sorted by timestamp
     kubectl get events --sort-by=.metadata.creationTimestamp
+}
+
+function klogs() {
+    kubectl logs -f "$@"
 }

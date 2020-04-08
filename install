@@ -19,7 +19,7 @@ mkdir -p ~/.config/mycli
 ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
 ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 
-cp -r "$BASE/bin/" ~/bin/
+ln -sfv "$BASE/bin/" ~/bin
 
 # Vim
 rm -rf ~/.vim/colors
