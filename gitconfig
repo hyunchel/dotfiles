@@ -1,6 +1,7 @@
 [user]
 	name = Hyunchel Kim
 	email = hyunchel.inbox@gmail.com
+	signingkey = 5AB61588C2F10820
 [alias]
 	co = checkout
 	br = branch
@@ -21,3 +22,5 @@
 	excludesfile = ~/.gitignore
 [init]
 	templatedir = ~/.git_template
+[commit]
+	gpgsign = true

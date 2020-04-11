@@ -45,8 +45,6 @@ export NVM_DIR="$HOME/.nvm"
 # Workspaces
 if [ -f ~/.config/rexhomes/rex.sh ]; then
     . ~/.config/rexhomes/rex.sh
-    git config --global --unset user.signingkey
-    git config --global --unset commit.gpgsign
 fi
 
 if [ -f ~/.config/arah/env.sh ]; then
@@ -55,8 +53,6 @@ fi
 
 if [ -f ~/.config/hyunchel/env ]; then
     . ~/.config/hyunchel/env
-    git config --global user.signingkey 5AB61588C2F10820
-    git config --global commit.gpgsign true
 fi
 
 
