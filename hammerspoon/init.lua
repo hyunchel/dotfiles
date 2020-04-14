@@ -31,16 +31,40 @@ end)
 
 -- moods
 -- main
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
-    local laptopScreen = "LG HDR 4K"
-    local windowLayout = {
-        {"Chrome", nil, laptopScreen, hs.layout.left50, nil, nil},
-        {"Terminal", nil, laptopScreen, hs.layout.right50, nil, nil},
+function moodMain()
+    local monitorScreen = "LG HDR 4K"
+    hs.layout.apply({
+        {"Chrome", nil, monitorScreen, hs.layout.left50, nil, nil},
+        {"Terminal", nil, monitorScreen, hs.layout.right50, nil, nil},
+    })
+
+    local laptopScreen = "Color LCD"
+    hs.layout.apply({
         {"Spotify", nil, laptopScreen, hs.layout.maximized, nil, nil},
         {"Leaf", nil, laptopScreen, hs.layout.maximized, nil, nil},
-    }
-    hs.layout.apply(windowLayout)
+    })
+end
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", moodMain)
+
+-- study
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "s", moodMain)
+
+-- work
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "w", function()
+    local monitorScreen = "LG HDR 4K"
+    hs.layout.apply({
+        {"Terminal", nil, monitorScreen, hs.layout.maximized, nil, nil},
+    })
+
+    local laptopScreen = "Color LCD"
+    hs.layout.apply({
+        {"Chrome", nil, monitorScreen, hs.layout.maximized, nil, nil},
+        {"Spotify", nil, laptopScreen, hs.layout.maximized, nil, nil},
+        {"Leaf", nil, laptopScreen, hs.layout.maximized, nil, nil},
+    })
 end)
+
 
 -- URLs
 hs.urlevent.bind("pomodoro", function(eventName, params)
