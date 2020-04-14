@@ -6,7 +6,7 @@ alias vi='vim'
 alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -la'
 alias mv='mv -i'
-alias githooks='cp -r ~/.git_template/hooks/ .git/hooks/'
+alias githooks='rm -rf .git/hooks/;ln -sfv ~/.git_template/hooks .git/hooks'
 alias t='python ~/.t/t.py --task-dir ~/.t --list tasks'
 alias sbash='source ~/.bashrc'
 

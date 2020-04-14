@@ -32,9 +32,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Git hooks
+rm -rf ~/.git_template
+ln -sfv "$BASE/git_template" ~/.git_template
 git config --global init.templatedir '~/.git_template'
-mkdir -p ~/.git_template/hooks
-cp -r "$BASE/git_template/hooks/" ~/.git_template/hooks/
 git config --global alias.ctags '!.git/hooks/ctags'
 
 # git-prompt
