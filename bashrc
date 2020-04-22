@@ -63,7 +63,9 @@ if [ "$(uname -s)" = 'Darwin' ]; then
     alias ls='ls -G'
 
     # k8s
-    source <(kubectl completion bash)
+    if command -v kubectl; then
+        source <(kubectl completion bash)
+    fi
 
     ## Java
     export PATH=$PATH:"$HOME/.jenv/bin:$PATH"
