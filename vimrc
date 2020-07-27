@@ -90,7 +90,6 @@ augroup END
 augroup filetype_html
     autocmd!
     autocmd Filetype html setlocal tabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufReadPost *.html,*.js :normal gg=G
     autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
@@ -126,6 +125,8 @@ Plug 'majutsushi/tagbar'
     let g:tagbar_sort = 0
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 " }}}
@@ -237,8 +238,8 @@ nnoremap L $
 let g:go_template_autocreate = 0
 
 " GoPls
-" let g:go_def_mode='gopls'
-" let g:go_info_mode='gopls'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 " }}}
 
 " Miscellaneous {{{
