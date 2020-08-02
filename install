@@ -10,7 +10,6 @@ ln -sfv "$BASE/inputrc" ~/.inputrc
 ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
-ln -sfv "$BASE/gitconfig" ~/.gitconfig
 ln -sfv "$BASE/gitignore" ~/.gitignore
 
 # Configs
@@ -18,8 +17,10 @@ mkdir -p ~/.config/pgcli
 mkdir -p ~/.config/mycli
 ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
 ln -sfv "$BASE/config/mycli/config" ~/.myclirc
-
 ln -sfv "$BASE/bin/" ~/bin
+
+cp "$BASE/gitconfig" ~/.gitconfig
+git config --global user.signingkey "5AB61588C2F10820"
 
 # Vim
 rm -rf ~/.vim/colors
@@ -47,10 +48,11 @@ if [ ! -e ~/.git-completion.bash ]; then
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-# CTAGS
 if [ "$PLATFORM" = Linux ]; then
+    # ctags
     sudo apt-get install -y gcc ctags
 
+    # fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
@@ -64,6 +66,7 @@ if [ "$PLATFORM" = Darwin ]; then
        bash-completion@2 \
        vim tmux go python \
        git wget mosh jq tree pgcli \
+       gnupg \
        redis pgcli mycli \
        httpie kubernetes-cli kubernetes-helm kubectx
 
