@@ -119,6 +119,8 @@ augroup END
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
