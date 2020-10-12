@@ -91,3 +91,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 export GPG_TTY=$(tty)
+
+# k8s
+alias k=kubectl
+complete -F __start_kubectl k

@@ -228,6 +228,10 @@ onoremap il" :<c-u>normal! F"vi"<cr>
 " "around next/last double quotes"
 onoremap an" :<c-u>normal! f"va"<cr>
 onoremap al" :<c-u>normal! F"va"<cr>
+
+" "new tab"
+nnoremap <leader>t :tab sp<cr>
+
 " }}}
 
 " Overwrites existing ones. Not sure if I would keep them {{{
