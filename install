@@ -20,7 +20,7 @@ ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 ln -sfv "$BASE/bin/" ~/bin
 
 cp "$BASE/gitconfig" ~/.gitconfig
-git config --global user.signingkey "5AB61588C2F10820"
+git config --global user.signingkey "B1DB9CACD17B9F08"
 
 # Vim
 rm -rf ~/.vim/colors
@@ -68,7 +68,8 @@ if [ "$PLATFORM" = Darwin ]; then
        git wget mosh jq tree pgcli \
        gnupg \
        redis pgcli mycli \
-       httpie kubernetes-cli kubernetes-helm kubectx
+       httpie kubernetes-cli kubernetes-helm kubectx \
+       lastpass-cli
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
