@@ -26,3 +26,5 @@ if [ -f '/Users/hyunchel/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hyunc
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hyunchel/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/google-cloud-sdk/completion.bash.inc'; fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

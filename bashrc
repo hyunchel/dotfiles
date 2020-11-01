@@ -2,7 +2,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
-alias vi='vim'
+alias vi='vim $(fzf --height 40%)'
 alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -la'
 alias mv='mv -i'
@@ -80,6 +80,9 @@ if [ "$(uname -s)" = 'Darwin' ]; then
     fi
 fi
 
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
+
 
 # Others
 
@@ -95,3 +98,12 @@ export GPG_TTY=$(tty)
 # k8s
 alias k=kubectl
 complete -F __start_kubectl k
+
+# added by travis gem
+[ ! -s /Users/hyunchel/.travis/travis.sh ] || source /Users/hyunchel/.travis/travis.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc'; fi

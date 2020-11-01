@@ -65,6 +65,7 @@ if [ "$PLATFORM" = Darwin ]; then
     brew install \
        bash-completion@2 \
        vim tmux go python \
+       ripgrep \
        git wget mosh jq tree pgcli \
        gnupg \
        redis pgcli mycli \

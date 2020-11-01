@@ -127,6 +127,7 @@ Plug 'majutsushi/tagbar'
     let g:tagbar_sort = 0
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'rust-lang/rust.vim'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -159,8 +160,8 @@ nnoremap <leader>c :nohlsearch<cr>
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 " Easy access to VIMRC file
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>er :vsplit $MYVIMRC<cr>
+nnoremap <leader>sr :source $MYVIMRC<cr>
 " Browse quick-fix items
 nnoremap <leader>k :cprevious<cr>
 nnoremap <leader>j :cnext<cr>
@@ -171,6 +172,11 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>h :Helptags<CR>
 nnoremap <leader>r :History/<CR>
+
+" window splits + fzf
+nnoremap <leader>st :tab sp<cr>:Files<cr>
+nnoremap <leader>ss :split<cr>:Files<cr>
+nnoremap <leader>sv :vsplit<cr>:Files<cr>
 
 " Toggle paste
 nnoremap <leader>v :set paste!<CR>
@@ -228,9 +234,6 @@ onoremap il" :<c-u>normal! F"vi"<cr>
 " "around next/last double quotes"
 onoremap an" :<c-u>normal! f"va"<cr>
 onoremap al" :<c-u>normal! F"va"<cr>
-
-" "new tab"
-nnoremap <leader>t :tab sp<cr>
 
 " }}}
 
