@@ -14,8 +14,6 @@ alias sbash='source ~/.bashrc'
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gosrc
-export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
 
 for f in  ~/bin/functions/*.sh; do source $f; done
@@ -39,18 +37,17 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 ## Python
 export PATH=~/miniconda3/bin:$PATH
 
+export PATH="$HOME/.poetry/bin:$PATH"
+poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
+
 # Node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Workspaces
-if [ -f ~/.config/rexhomes/rex.sh ]; then
-    . ~/.config/rexhomes/rex.sh
-fi
-
-if [ -f ~/.config/arah/env.sh ]; then
-    . ~/.config/arah/env.sh
+if [ -f ~/.config/arah/env ]; then
+    . ~/.config/arah/env
 fi
 
 if [ -f ~/.config/hyunchel/env ]; then

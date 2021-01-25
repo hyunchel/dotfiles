@@ -28,3 +28,5 @@ if [ -f '/Users/hyunchel/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hyunc
 if [ -f '/Users/hyunchel/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/google-cloud-sdk/completion.bash.inc'; fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"

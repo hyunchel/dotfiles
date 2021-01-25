@@ -177,6 +177,7 @@ nnoremap <leader>r :History/<CR>
 nnoremap <leader>st :tab sp<cr>:Files<cr>
 nnoremap <leader>ss :split<cr>:Files<cr>
 nnoremap <leader>sv :vsplit<cr>:Files<cr>
+nnoremap <leader>F :Rg<cr>
 
 " Toggle paste
 nnoremap <leader>v :set paste!<CR>

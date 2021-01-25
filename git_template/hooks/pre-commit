@@ -2,7 +2,5 @@
 if [ -f "Makefile" ]; then
     if [ "$HYUNCHEL" = "atwork" ]; then
         make ci-linter ci-tests
-    else
-        make lint test
     fi
 fi
