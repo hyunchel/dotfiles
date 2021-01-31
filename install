@@ -75,6 +75,7 @@ if [ "$PLATFORM" = Darwin ]; then
     $(brew --prefix)/opt/fzf/install
 
     brew cask install karabiner-elements caffeine hammerspoon
+    brew install --cask ngrok
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi
 

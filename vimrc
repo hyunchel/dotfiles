@@ -64,7 +64,6 @@ set tags=./tags,tags;
 " Abbreviations {{{
 iabbrev pdb; import pdb;pdb.set_trace()
 iabbrev #!! #! /usr/bin/env bash
-iabbrev @@ hyunchel.inbox@gmail.com
 " }}}
 
 " File settings {{{
@@ -182,6 +181,17 @@ nnoremap <leader>F :Rg<cr>
 " Toggle paste
 nnoremap <leader>v :set paste!<CR>
 
+" Go stuffs
+nnoremap <leader>gb :GoBuild<CR>
+nnoremap <leader>gr :GoRun<CR>
+nnoremap <leader>gi :GoInfo<CR>
+nnoremap <leader>gt :GoTest<CR>
+nnoremap <leader>gtf :GoTestFunc<CR>
+nnoremap <leader>gpt :GoPointsTo<CR>
+nnoremap <leader>gk :GoKeyify<CR>
+nnoremap <leader>gfs :GoFillStruct<CR>
+nnoremap <leader>gie :GoIfErr<CR>k%wcw
+
 " Quote selected words
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
@@ -235,6 +245,7 @@ onoremap il" :<c-u>normal! F"vi"<cr>
 " "around next/last double quotes"
 onoremap an" :<c-u>normal! f"va"<cr>
 onoremap al" :<c-u>normal! F"va"<cr>
+
 
 " }}}
 
