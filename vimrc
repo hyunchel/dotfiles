@@ -190,7 +190,7 @@ nnoremap <leader>gtf :GoTestFunc<CR>
 nnoremap <leader>gpt :GoPointsTo<CR>
 nnoremap <leader>gk :GoKeyify<CR>
 nnoremap <leader>gfs :GoFillStruct<CR>
-nnoremap <leader>gie :GoIfErr<CR>k%wcw
+nnoremap <leader>gie :GoIfErr<CR>k%w
 
 " Quote selected words
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
