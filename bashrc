@@ -25,7 +25,6 @@ export GIT_PS1_SHOWSTASHSTATE=1
 
 # PS1="\[\033[38;5;218m\]\u\[\033[38;5;15m\]@\[\033[38;5;161m\]\h\[\033[38;5;15m\]:"
 export PS1="\w\[\033[38;5;99m\]\$(__git_ps1 \"(%s)\")\[\033[38;5;120m\]$ \[\033[0m\]"
-export PS1='[$(t | wc -l | sed -e"s/ *//")]'" $PS1"
 
 # Git
 . ~/.git-completion.bash

@@ -1,21 +1,24 @@
 #! /usr/bin/env sh 
 session="tmux-code"
-targetDir=$PWD
+targetDir="$PWD/$1"
 
 tmux start-server
 
 # Coding console.
 tmux new-session -d -s $session -n code
-tmux send-keys "cd $targetDir;vim" C-m
+tmux send-keys "cd $targetDir;bash" C-m
 
 tmux new-window -n make
-tmux send-keys "cd $targetDir" C-m
+tmux send-keys "cd $targetDir;bash" C-m
 
-tmux new-window -n test
-tmux send-keys "cd $targetDir;make help" C-m
+tmux new-window -n dot
+tmux send-keys "cd $PWD/dotfiles;bash" C-m
 
-tmux new-window -n k8s
-tmux send-keys "cd $targetDir;kubectl config get-contexts" C-m
+tmux new-window -n tut
+tmux send-keys "cd $PWD/go-tutorials;bash" C-m
+
+tmux new-window -n oss
+tmux send-keys "cd $PWD/jwx;bash" C-m
 
 tmux select-window -t code
 
