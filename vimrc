@@ -203,6 +203,11 @@ vnoremap <leader>/ y/<C-R>"<CR>
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+" Auto-closings
+inoremap {<CR> {<CR>}<ESC>O
+inoremap (<CR> (<CR>]<ESC>O
+inoremap [<CR> [<CR>)<ESC>O
+
 " "parameter"
 onoremap p i(
 
