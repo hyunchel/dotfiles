@@ -92,6 +92,11 @@ augroup filetype_html
     autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
+augroup filetype_css
+    autocmd!
+    autocmd Filetype css setlocal tabstop=2 shiftwidth=2
+augroup END
+
 augroup filetype_txt
     autocmd!
     autocmd BufNewFile,BufReadPost *.txt setlocal spell
@@ -204,9 +209,10 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 
 " Auto-closings
+" inoremap {<CR> {<CR>}<ESC>O
 inoremap {<CR> {<CR>}<ESC>O
-inoremap (<CR> (<CR>]<ESC>O
-inoremap [<CR> [<CR>)<ESC>O
+inoremap (<CR> (<CR>)<ESC>O
+inoremap [<CR> [<CR>]<ESC>O
 
 " "parameter"
 onoremap p i(
