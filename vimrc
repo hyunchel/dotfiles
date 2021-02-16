@@ -90,11 +90,13 @@ augroup filetype_html
     autocmd!
     autocmd Filetype html setlocal tabstop=2 shiftwidth=2
     autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+    autocmd Filetype html inoremap <buffer> ><cr> ><esc>bf>%wywo</<esc>pi><esc>O
 augroup END
 
 augroup filetype_css
     autocmd!
     autocmd Filetype css setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype css inoremap <buffer> : :;<esc>i<space>
 augroup END
 
 augroup filetype_txt
@@ -128,10 +130,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-    let g:tagbar_sort = 0
+  let g:tagbar_sort = 0
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'rust-lang/rust.vim'
+Plug 'mattn/emmet-vim'
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css EmmetInstall
 
 Plug 'sheerun/vim-polyglot'
 
