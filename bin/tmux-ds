@@ -1,0 +1,15 @@
+#! /usr/bin/env sh 
+session="datastore"
+
+tmux start-server
+
+# Coding console.
+tmux new-session -d -s $session -n redis
+tmux send-keys "redis-server" C-m
+
+tmux split-window
+tmux send-keys "redis-cli" C-m
+
+tmux select-window -t redis
+
+tmux attach -t $session
