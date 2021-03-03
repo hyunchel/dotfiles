@@ -1,45 +1,11 @@
-" vimrc file for Hyunchel Kim <hyunchel.inbox@gmail.com>
+" vimrc file for Hyunchel Kim {{{
 
-" Preconfigured settings {{{
-" As VIM manual suggest...
 source $VIMRUNTIME/defaults.vim
-
-if &t_Co > 2
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
-if has('syntax') && has('eval')
-  packadd! matchit
-endif
-" }}}
 
 let mapleader = ' '
 let maplocalleader = '\\'
+
+" }}}
 
 " Basic settings {{{
 " colors
@@ -99,6 +65,15 @@ augroup filetype_css
     autocmd Filetype css inoremap <buffer> : :;<esc>i<space>
 augroup END
 
+augroup filetype_vue
+    autocmd!
+    autocmd Filetype vue setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype vue :iabbrev <buffer> vueinit
+          \ <template><cr></template><cr><cr><script><cr>
+          \export default {}<cr>
+          \</script><cr><cr><style><cr></style>
+augroup END
+
 augroup filetype_txt
     autocmd!
     autocmd BufNewFile,BufReadPost *.txt setlocal spell
@@ -127,6 +102,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
@@ -137,8 +113,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
   let g:user_emmet_install_global = 0
   autocmd FileType html,css EmmetInstall
-
-Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 " }}}
@@ -286,4 +260,3 @@ let g:go_info_mode='gopls'
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 " }}}
-
