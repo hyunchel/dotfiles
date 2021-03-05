@@ -113,6 +113,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
   let g:user_emmet_install_global = 0
   autocmd FileType html,css EmmetInstall
+Plug 'posva/vim-vue'
 
 call plug#end()
 " }}}
@@ -139,9 +140,6 @@ nnoremap <leader>w :match Error /\v\s+\n/ <cr>
 nnoremap <leader>W :match<cr>
 " Clear highlight
 nnoremap <leader>c :nohlsearch<cr>
-" Quote word
-nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 " Easy access to VIMRC file
 nnoremap <leader>er :vsplit $MYVIMRC<cr>
 nnoremap <leader>sr :source $MYVIMRC<cr>
@@ -193,9 +191,6 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap (<CR> (<CR>)<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
 
-" "parameter"
-onoremap p i(
-
 " "inside next/last parentheses"
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! F)vi(<cr>
@@ -236,12 +231,6 @@ onoremap il" :<c-u>normal! F"vi"<cr>
 onoremap an" :<c-u>normal! f"va"<cr>
 onoremap al" :<c-u>normal! F"va"<cr>
 
-
-" }}}
-
-" Overwrites existing ones. Not sure if I would keep them {{{
-nnoremap H 0
-nnoremap L $
 " }}}
 
 " Golang settings {{{
@@ -254,9 +243,6 @@ let g:go_info_mode='gopls'
 " }}}
 
 " Miscellaneous {{{
-" let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 " }}}

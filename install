@@ -69,7 +69,7 @@ if [ "$PLATFORM" = Darwin ]; then
        gnupg \
        redis pgcli mycli \
        httpie kubernetes-cli kubernetes-helm kubectx \
-       lastpass-cli
+       1password-cli
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
@@ -78,9 +78,6 @@ if [ "$PLATFORM" = Darwin ]; then
     brew install --cask ngrok
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi
-
-# Golang
-mkdir -p ~/gosrc
 
 # Miscellaneous
 

@@ -7,7 +7,6 @@ alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -la'
 alias mv='mv -i'
 alias githooks='rm -rf .git/hooks/;ln -sfv ~/.git_template/hooks .git/hooks'
-alias t='python ~/.t/t.py --task-dir ~/.t --list tasks'
 alias sbash='source ~/.bashrc'
 
 # Custom
@@ -23,7 +22,6 @@ for f in  ~/bin/functions/*.sh; do source $f; done
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
 
-# PS1="\[\033[38;5;218m\]\u\[\033[38;5;15m\]@\[\033[38;5;161m\]\h\[\033[38;5;15m\]:"
 export PS1="\w\[\033[38;5;99m\]\$(__git_ps1 \"(%s)\")\[\033[38;5;120m\]$ \[\033[0m\]"
 
 # Git
@@ -45,14 +43,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Workspaces
-if [ -f ~/.config/arah/env ]; then
-    . ~/.config/arah/env
-fi
-
 if [ -f ~/.config/hyunchel/env ]; then
     . ~/.config/hyunchel/env
 fi
-
 
 # Platform specific stuffs
 if [ "$(uname -s)" = 'Darwin' ]; then
@@ -78,7 +71,6 @@ fi
 
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
-
 
 # Others
 
