@@ -150,14 +150,14 @@ nnoremap <leader>j :cnext<cr>
 " Plugins
 nnoremap ., :TagbarToggle<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>p :Files<CR>
+nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>h :Helptags<CR>
 nnoremap <leader>r :History/<CR>
 
 " window splits + fzf
-nnoremap <leader>st :tab sp<cr>:Files<cr>
-nnoremap <leader>ss :split<cr>:Files<cr>
-nnoremap <leader>sv :vsplit<cr>:Files<cr>
+nnoremap <leader>st :tab sp<cr>:GFiles<cr>
+nnoremap <leader>ss :split<cr>:GFiles<cr>
+nnoremap <leader>sv :vsplit<cr>:GFiles<cr>
 nnoremap <leader>F :Rg<cr>
 
 " Toggle paste
