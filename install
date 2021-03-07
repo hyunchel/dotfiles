@@ -78,9 +78,3 @@ if [ "$PLATFORM" = Darwin ]; then
     brew install --cask ngrok
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi
-
-# Miscellaneous
-
-# hammerspoon
-rm -rf ~/.hammerspoon
-ln -sfv "$BASE/hammerspoon" ~/.hammerspoon
