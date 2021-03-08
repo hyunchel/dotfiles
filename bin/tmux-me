@@ -1,0 +1,18 @@
+#! /usr/bin/env sh 
+session="me"
+
+tmux start-server
+
+# Coding console.
+tmux new-session -d -s $session -n dot
+tmux send-keys "cd dotfiles;bash" C-m
+
+tmux new-window -n bitbar
+tmux send-keys "cd bitbar-plugins;bash" C-m
+
+tmux new-window -n tutorials
+tmux send-keys "cd tutorials;bash" C-m
+
+tmux select-window -t dot
+
+tmux attach -t $session

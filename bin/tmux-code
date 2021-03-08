@@ -15,7 +15,7 @@ tmux new-window -n dot
 tmux send-keys "cd $PWD/dotfiles;bash" C-m
 
 tmux new-window -n tut
-tmux send-keys "cd $PWD/go-tutorials;bash" C-m
+tmux send-keys "cd $PWD/tutorials;bash" C-m
 
 tmux new-window -n oss
 tmux send-keys "cd $PWD/jwx;bash" C-m
