@@ -49,6 +49,7 @@ augroup END
 augroup filetype_javascript
     autocmd!
     autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype javascript inoremap {<space> {<space><space>}<ESC>hi
     autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 augroup END
 
@@ -112,8 +113,20 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
   let g:user_emmet_install_global = 0
-  autocmd FileType html,css EmmetInstall
+  autocmd FileType html,css,javascript,javascript.jsx,vue EmmetInstall
+  let g:user_emmet_settings = { 'javascript': { 'extends': 'jsx' } } 
+
 Plug 'posva/vim-vue'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+Plug 'honza/vim-snippets'
+Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 " }}}
@@ -162,6 +175,9 @@ nnoremap <leader>F :Rg<cr>
 
 " Toggle paste
 nnoremap <leader>v :set paste!<CR>
+
+" futigive
+nnoremap <leader>g :Git<CR>
 
 " Go stuffs
 nnoremap <leader>gb :GoBuild<CR>
