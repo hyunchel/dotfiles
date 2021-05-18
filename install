@@ -60,6 +60,7 @@ fi
 if [ "$PLATFORM" = Darwin ]; then
     [ -z "$(which brew)" ] &&
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 
     brew install \
        bash-completion@2 \
@@ -74,7 +75,7 @@ if [ "$PLATFORM" = Darwin ]; then
     brew install fzf
     $(brew --prefix)/opt/fzf/install
 
-    brew cask install karabiner-elements caffeine hammerspoon
+    brew install --cask karabiner-elements caffeine hammerspoon
     brew install --cask ngrok
     brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi

@@ -24,6 +24,10 @@ export GIT_PS1_SHOWSTASHSTATE=1
 
 export PS1="\w\[\033[38;5;99m\]\$(__git_ps1 \"(%s)\")\[\033[38;5;120m\]$ \[\033[0m\]"
 
+# Brew
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Git
 . ~/.git-completion.bash
 
