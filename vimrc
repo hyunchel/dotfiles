@@ -126,6 +126,8 @@ Plug 'posva/vim-vue'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
+Plug 'tomlion/vim-solidity'
+
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
