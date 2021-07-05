@@ -53,13 +53,6 @@ augroup filetype_javascript
     autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 augroup END
 
-augroup filetype_javascriptreact
-    autocmd!
-    autocmd Filetype javascriptreact setlocal tabstop=2 shiftwidth=2
-    autocmd Filetype javascriptreact inoremap {<space> {<space><space>}<ESC>hi
-    autocmd FileType javascriptreact :iabbrev <buffer> iff if ()<left>
-augroup END
-
 augroup filetype_html
     autocmd!
     autocmd Filetype html setlocal tabstop=2 shiftwidth=2
@@ -71,6 +64,12 @@ augroup filetype_css
     autocmd!
     autocmd Filetype css setlocal tabstop=2 shiftwidth=2
     autocmd Filetype css inoremap <buffer> : :;<esc>i<space>
+augroup END
+
+augroup filetype_scss
+    autocmd!
+    autocmd Filetype scss setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype scss inoremap <buffer> : :;<esc>i<space>
 augroup END
 
 augroup filetype_vue
