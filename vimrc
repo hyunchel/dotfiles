@@ -9,15 +9,18 @@ let maplocalleader = '\\'
 
 " Basic settings {{{
 " colors
+colorscheme seoul256
 set background=dark
 syntax enable
-colorscheme seoul256
 
 " the tabs
 set tabstop=4
 set shiftwidth=4
 set expandtab
 filetype indent on
+
+set splitbelow
+set splitright
 
 " misc
 set hlsearch incsearch
@@ -51,6 +54,12 @@ augroup filetype_javascript
     autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
     autocmd Filetype javascript inoremap {<space> {<space><space>}<ESC>hi
     autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+augroup END
+
+augroup filetype_solidity
+    autocmd!
+    autocmd Filetype solidity setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype solidity inoremap {<space> {<space><space>}<ESC>hi
 augroup END
 
 augroup filetype_html
@@ -112,6 +121,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
   let g:tagbar_sort = 0
 
@@ -124,6 +134,8 @@ Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'ap/vim-css-color'
+Plug 'cespare/vim-toml'
 
 Plug 'tomlion/vim-solidity'
 
@@ -134,6 +146,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 Plug 'honza/vim-snippets'
 Plug 'mlaursen/vim-react-snippets'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 " }}}
@@ -146,12 +160,12 @@ nnoremap / /\v
 nnoremap <leader>o o<esc>
 nnoremap <leader>O O<esc>
 
-" Save file
 nnoremap <leader>s :update<cr>
-
-" Quit file
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa!<cr>
+
+" Explore
+nnoremap <leader>n :Explore<CR>
 
 " Reopen last file
 nnoremap <leader><space> :execute "leftabove vsplit " . bufname("#")<CR>
@@ -167,6 +181,10 @@ nnoremap <leader>sr :source $MYVIMRC<cr>
 nnoremap <leader>k :cprevious<cr>
 nnoremap <leader>j :cnext<cr>
 
+nnoremap <leader>z :set invrnu invnu<CR>
+xnoremap J :move '>+1<CR>gv-gv
+xnoremap K :move '<-2<CR>gv-gv
+
 " Plugins
 nnoremap ., :TagbarToggle<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -179,6 +197,9 @@ nnoremap <leader>st :tab sp<cr>:GFiles<cr>
 nnoremap <leader>ss :split<cr>:GFiles<cr>
 nnoremap <leader>sv :vsplit<cr>:GFiles<cr>
 nnoremap <leader>F :Rg<cr>
+
+" Goyo
+nnoremap <leader><ENTER> :Goyo<CR>
 
 " Toggle paste
 nnoremap <leader>v :set paste!<CR>
@@ -197,10 +218,6 @@ nnoremap <leader>gk :GoKeyify<CR>
 nnoremap <leader>gfs :GoFillStruct<CR>
 nnoremap <leader>gie :GoIfErr<CR>k%w
 
-" Quote selected words
-vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
-vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
-
 " Search selected words
 vnoremap <leader>/ y/<C-R>"<CR>
 
@@ -209,7 +226,6 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 
 " Auto-closings
-" inoremap {<CR> {<CR>}<ESC>O
 inoremap {<CR> {<CR>}<ESC>O
 inoremap (<CR> (<CR>)<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
@@ -268,4 +284,29 @@ let g:go_info_mode='gopls'
 " Miscellaneous {{{
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
+
+" Goyo
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " }}}
