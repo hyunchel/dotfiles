@@ -17,6 +17,7 @@ mkdir -p ~/.config/pgcli
 mkdir -p ~/.config/mycli
 ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
 ln -sfv "$BASE/config/mycli/config" ~/.myclirc
+ln -sfv "$BASE/config/nvim/init.vim" ~/.config/nvim/init.vim
 ln -sfv "$BASE/bin/" ~/bin
 
 cp "$BASE/gitconfig" ~/.gitconfig
@@ -72,7 +73,7 @@ if [ "$PLATFORM" = Darwin ]; then
        redis pgcli mycli \
        httpie kubernetes-cli kubernetes-helm kubectx \
        1password-cli \
-       iterm2
+       iterm2 neovim
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install

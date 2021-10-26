@@ -1,7 +1,4 @@
 " vimrc file for Hyunchel Kim {{{
-
-source $VIMRUNTIME/defaults.vim
-
 let mapleader = ' '
 let maplocalleader = '\\'
 
