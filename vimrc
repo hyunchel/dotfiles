@@ -9,9 +9,15 @@ let maplocalleader = '\\'
 
 " Basic settings {{{
 " colors
-colorscheme seoul256
+set termguicolors
+colorscheme NeoSolarized
 set background=dark
 syntax enable
+
+" neosolarized
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+
 
 " the tabs
 set tabstop=4

@@ -71,7 +71,8 @@ if [ "$PLATFORM" = Darwin ]; then
        gnupg \
        redis pgcli mycli \
        httpie kubernetes-cli kubernetes-helm kubectx \
-       1password-cli
+       1password-cli \
+       iterm2
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
