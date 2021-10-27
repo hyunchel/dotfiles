@@ -152,6 +152,10 @@ Plug 'mlaursen/vim-react-snippets'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+if has('nvim')
+    Plug 'neovim/nvim-lspconfig'
+endif
+
 call plug#end()
 " }}}
 

@@ -73,7 +73,8 @@ if [ "$PLATFORM" = Darwin ]; then
        redis pgcli mycli \
        httpie kubernetes-cli kubernetes-helm kubectx \
        1password-cli \
-       iterm2 neovim
+       iterm2 neovim \
+       rust-analyzer
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
