@@ -3,6 +3,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 alias vi='vim $(fzf --height 40%)'
+alias vim='nvim'
 alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -la'
 alias mv='mv -i'
@@ -12,7 +13,7 @@ alias sbash='source ~/.bashrc'
 # Custom
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/bin
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR=vim
 
 for f in  ~/bin/functions/*.sh; do source $f; done
@@ -25,7 +26,6 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export PS1="\w\[\033[38;5;99m\]\$(__git_ps1 \"(%s)\")\[\033[38;5;120m\]$ \[\033[0m\]"
 
 # Brew
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Git
@@ -38,8 +38,10 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 ## Python
 export PATH=~/miniconda3/bin:$PATH
 
-export PATH="$HOME/.poetry/bin:$PATH"
-poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
+if [ -n $(command -v poetry) ]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
+    poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
+fi
 
 # Node
 export NVM_DIR="$HOME/.nvm"
@@ -99,3 +101,4 @@ if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/U
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+. "$HOME/.cargo/env"
