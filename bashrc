@@ -38,7 +38,7 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 ## Python
 export PATH=~/miniconda3/bin:$PATH
 
-if [ -n $(command -v poetry) ]; then
+if [ $(command -v poetry) ]; then 
     export PATH="$HOME/.poetry/bin:$PATH"
     poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
 fi
@@ -58,13 +58,15 @@ if [ "$(uname -s)" = 'Darwin' ]; then
     alias ls='ls -G'
 
     # k8s
-    if command -v kubectl; then
+    if [ $(command -v kubectl) ]; then
         source <(kubectl completion bash)
     fi
 
     ## Java
-    export PATH=$PATH:"$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
+    if [ $(command -v jenv) ]; then
+        export PATH=$PATH:"$HOME/.jenv/bin:$PATH"
+        eval "$(jenv init -)"
+    fi
 
     # Requires brew to install things
 
