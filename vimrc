@@ -59,6 +59,27 @@ augroup filetype_javascript
     autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 augroup END
 
+augroup filetype_javascriptreact
+    autocmd!
+    autocmd Filetype javascriptreact setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype javascriptreact inoremap {<space> {<space><space>}<ESC>hi
+    autocmd FileType javascriptreact :iabbrev <buffer> iff if ()<left>
+augroup END
+ 
+augroup filetype_typescript
+    autocmd!
+    autocmd Filetype typescript setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype typescript inoremap {<space> {<space><space>}<ESC>hi
+    autocmd FileType typescript :iabbrev <buffer> iff if ()<left>
+augroup END
+
+augroup filetype_typescriptreact
+    autocmd!
+    autocmd Filetype typescriptreact setlocal tabstop=2 shiftwidth=2
+    autocmd Filetype typescriptreact inoremap {<space> {<space><space>}<ESC>hi
+    autocmd FileType typescriptreact :iabbrev <buffer> iff if ()<left>
+augroup END
+
 augroup filetype_solidity
     autocmd!
     autocmd Filetype solidity setlocal tabstop=2 shiftwidth=2
@@ -132,7 +153,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
   let g:user_emmet_install_global = 0
-  autocmd FileType html,css,javascript,javascriptreact,vue EmmetInstall
+  autocmd FileType html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall
 
 Plug 'posva/vim-vue'
 Plug 'yuezk/vim-js'
