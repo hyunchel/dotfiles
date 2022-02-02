@@ -13,7 +13,7 @@ alias sbash='source ~/.bashrc'
 # Custom
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$(go env GOBIN)
 export EDITOR=vim
 
 for f in  ~/bin/functions/*.sh; do source $f; done
