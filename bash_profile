@@ -22,7 +22,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hyunchel/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hyunchel/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/hyunchel/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/completion.bash.inc'; fi
