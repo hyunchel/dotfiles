@@ -11,6 +11,10 @@ colorscheme NeoSolarized
 set background=dark
 syntax enable
 
+" vimwiki
+set nocompatible
+filetype plugin on
+
 " neosolarized
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
@@ -177,7 +181,17 @@ if has('nvim')
     Plug 'neovim/nvim-lspconfig'
 endif
 
+Plug 'vimwiki/vimwiki'
+let wiki = {}
+let wiki.path = '~/wiki/_wiki/'
+let wiki.ext = '.md'
+
+let g:vimwiki_list = [wiki]
+let g:vimwiki_conceallevel = 0
+
+
 call plug#end()
+
 " }}}
 
 " Mappings {{{
@@ -307,7 +321,6 @@ let g:go_template_autocreate = 0
 " GoPls
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-" }}}
 
 " Tagbar - gotags
 let g:tagbar_type_go = {
@@ -337,6 +350,9 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+" }}}
+
 " Miscellaneous {{{
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
