@@ -182,11 +182,11 @@ if has('nvim')
 endif
 
 Plug 'vimwiki/vimwiki'
-let wiki = {}
-let wiki.path = '~/wiki/_wiki/'
-let wiki.ext = '.md'
 
-let g:vimwiki_list = [wiki]
+let g:vimwiki_list = [{
+    \ 'path': '~/wiki',
+    \ 'ext': '.md',
+\ }]
 let g:vimwiki_conceallevel = 0
 
 
@@ -311,6 +311,12 @@ onoremap il" :<c-u>normal! F"vi"<cr>
 " "around next/last double quotes"
 onoremap an" :<c-u>normal! f"va"<cr>
 onoremap al" :<c-u>normal! F"va"<cr>
+
+" vimwiki
+nnoremap <leader>vwi :VimwikiIndex<CR>
+nnoremap <leader>vwd :VimwikiDiaryIndex<CR>
+nnoremap <leader>vwmd :VimwikiMakeDiaryNote<CR>
+nnoremap <leader>vwgd :VimwikiDiaryGenerateLinks<CR>
 
 " }}}
 
