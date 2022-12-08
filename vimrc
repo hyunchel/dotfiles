@@ -176,6 +176,7 @@ Plug 'honza/vim-snippets'
 Plug 'mlaursen/vim-react-snippets'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:python3_host_prog = '/usr/bin/python'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
@@ -188,7 +189,11 @@ let g:vimwiki_list = [{
     \ 'ext': '.md',
 \ }]
 let g:vimwiki_conceallevel = 0
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+let g:vimwiki_markdown_link_ext = 1
 
+Plug 'tools-life/taskwiki'
+let g:taskwiki_markup_syntax = 'markdown'
 
 call plug#end()
 
@@ -356,7 +361,6 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
-
 " }}}
 
 " Miscellaneous {{{
