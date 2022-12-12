@@ -176,7 +176,6 @@ Plug 'honza/vim-snippets'
 Plug 'mlaursen/vim-react-snippets'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:python3_host_prog = '/usr/bin/python'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
