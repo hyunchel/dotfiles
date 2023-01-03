@@ -188,7 +188,6 @@ let g:vimwiki_list = [{
     \ 'ext': '.md',
 \ }]
 let g:vimwiki_conceallevel = 0
-let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 let g:vimwiki_markdown_link_ext = 1
 
 Plug 'tools-life/taskwiki'
