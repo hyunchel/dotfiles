@@ -17,4 +17,7 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+-- Load custom lua plugins
+require('wikimatter')
+
 EOF
