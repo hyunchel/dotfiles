@@ -12,6 +12,11 @@ ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitignore" ~/.gitignore
 ln -sfv "$BASE/taskrc" ~/.taskrc
+if [ "$PLATFORM" = Linux ]; then
+    ln -sfv "$BASE/config/xmonad/xmonad.hs" ~/.config/xmonad/xmonad.hs
+    ln -sfv "$BASE/config/xmobar/xmobarrc" ~/.config/xmobar/xmobarrc
+    ln -sfv "$BASE/config/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
+fi
 
 # Configs
 mkdir -p ~/.config/pgcli
@@ -20,6 +25,7 @@ ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
 ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 ln -sfv "$BASE/config/nvim/init.vim" ~/.config/nvim/init.vim
 ln -sfv "$BASE/bin/" ~/bin
+
 
 cp "$BASE/gitconfig" ~/.gitconfig
 
@@ -63,7 +69,7 @@ if [ "$PLATFORM" = Linux ]; then
 
     # fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    ~/.fzf/install     
 fi
 
 # Homebrew
