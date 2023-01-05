@@ -11,11 +11,14 @@ ln -sfv "$BASE/vimrc" ~/.vimrc
 ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitignore" ~/.gitignore
-ln -sfv "$BASE/taskrc" ~/.taskrc
 if [ "$PLATFORM" = Linux ]; then
+    ln -sfv "$BASE/taskrc-linux" ~/.taskrc
     ln -sfv "$BASE/config/xmonad/xmonad.hs" ~/.config/xmonad/xmonad.hs
     ln -sfv "$BASE/config/xmobar/xmobarrc" ~/.config/xmobar/xmobarrc
     ln -sfv "$BASE/config/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
+fi
+if [ "$PLATFORM" = Darwin ]; then
+    ln -sfv "$BASE/taskrc-darwin" ~/.taskrc
 fi
 
 # Configs
