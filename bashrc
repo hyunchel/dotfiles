@@ -13,7 +13,6 @@ alias sbash='source ~/.bashrc'
 # Custom
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/bin
-export PATH=$PATH:$(go env GOBIN)
 export EDITOR=vim
 
 for f in  ~/bin/functions/*.sh; do source $f; done
@@ -36,7 +35,7 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 ## Python
-export PATH=~/miniconda3/bin:$PATH
+export PATH=~/miniconda/bin:$PATH
 
 if [ $(command -v poetry) ]; then 
     export PATH="$HOME/.poetry/bin:$PATH"
@@ -77,6 +76,10 @@ if [ "$(uname -s)" = 'Darwin' ]; then
     fi
 fi
 
+# Go
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin
+
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
 
@@ -104,3 +107,6 @@ if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/U
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 . "$HOME/.cargo/env"
+
+export PNPM_HOME="/Users/hyunchelkim/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
