@@ -50,6 +50,6 @@ news.version=2.6.0
 report.now.columns=id,start.age,entry.age,depends,priority,project,tags,due.relative,until.remaining,description,urgency
 report.now.labels=ID,Active,Age,Deps,P,Project,Tag,Due,Until,Description,Urg
 report.now.sort=project+,urgency-
-report.now.filter=status:pending +UNBLOCKED +READY -backlog
+report.now.filter=status:pending +UNBLOCKED +READY +DUE
 report.now.description=Open tasks due this cycle. Sorted by project and urgency
 report.now.context=1
