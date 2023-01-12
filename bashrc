@@ -9,6 +9,7 @@ alias ll='ls -la'
 alias mv='mv -i'
 alias githooks='rm -rf .git/hooks/;ln -sfv ~/.git_template/hooks .git/hooks'
 alias sbash='source ~/.bashrc'
+alias pbcopy='xclip -selection clipboard'
 
 # Custom
 export PATH="/usr/local/sbin:$PATH"
