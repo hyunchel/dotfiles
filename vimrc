@@ -15,6 +15,10 @@ syntax enable
 set nocompatible
 filetype plugin on
 
+" enable smart. ripgrep defaults to smartcase.
+set ignorecase
+set smartcase
+
 " neosolarized
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
@@ -125,12 +129,14 @@ augroup END
 
 augroup filetype_md
     autocmd!
+    autocmd Filetype md nnoremap / /\v\c
     " "inside/around heading"
     " autocmd FileType md onoremap <buffer> ih :<c-u>execute "normal! ?^\\(==\\|--\\)\\+$\r:nohlsearch\rkvg_"<cr>
     " autocmd FileType md onoremap <buffer> ah :<c-u>execute "normal! ?^(==|--)\\+$\r:nohlsearch\rg_vk0"<cr>
     " Statusline
     " autocmd FileType md setlocal statusline=%l
 augroup END
+
 " }}}
 
 " Statuslines {{{
