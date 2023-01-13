@@ -3,16 +3,18 @@ session="me"
 
 tmux start-server
 
-# Coding console.
-tmux new-session -d -s $session -n dot
-tmux send-keys "cd dotfiles;bash" C-m
+tmux new-session -d -s $session -n me
+tmux send-keys "cd ~/;zsh" C-m
 
-tmux new-window -n bitbar
-tmux send-keys "cd bitbar-plugins;bash" C-m
+tmux new-window -n make
+tmux send-keys "cd ~/;zsh" C-m
 
-tmux new-window -n tutorials
-tmux send-keys "cd tutorials;bash" C-m
+tmux new-window -n dot
+tmux send-keys "cd ~/code/dotfiles;zsh" C-m
 
-tmux select-window -t dot
+tmux new-window -n wiki
+tmux send-keys "cd ~/wiki;zsh" C-m
+
+tmux select-window -t me
 
 tmux attach -t $session
