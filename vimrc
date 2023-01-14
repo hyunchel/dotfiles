@@ -38,7 +38,6 @@ set hlsearch incsearch
 set number
 set relativenumber
 set colorcolumn=100
-set tags=./tags,tags;
 " }}}
 
 " Abbreviations {{{
