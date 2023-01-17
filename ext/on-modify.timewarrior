@@ -55,10 +55,10 @@ def extract_tags_from(json_obj):
     tags = [json_obj['description']]
 
     if 'project' in json_obj:
-        tags.append(json_obj['project'])
+        tags.append('#{}'.format(json_obj['project']))
 
     if 'tags' in json_obj:
-        tags.extend(json_obj['tags'])
+        tags.extend('@{}'.format(json_obj['tags']))
 
     return tags
 

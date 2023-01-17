@@ -27,6 +27,7 @@ ln -sfv "$BASE/bin/" ~/bin
 
 
 cp "$BASE/gitconfig" ~/.gitconfig
+cp "$BASE/ext/on-modify.timewarrior" ~/.task/hooks/
 
 # Vim
 rm -rf ~/.vim/colors
