@@ -15,6 +15,9 @@ tmux send-keys "cd ~/code/dotfiles;zsh" C-m
 tmux new-window -n wiki
 tmux send-keys "cd ~/wiki;zsh" C-m
 
+tmux new-window -n espresso
+tmux send-keys "zsh;espresso" C-m
+
 tmux select-window -t me
 
 tmux attach -t $session
