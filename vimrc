@@ -171,15 +171,6 @@ Plug 'ap/vim-css-color'
 Plug 'cespare/vim-toml'
 
 Plug 'tomlion/vim-solidity'
-
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-
-Plug 'honza/vim-snippets'
-Plug 'mlaursen/vim-react-snippets'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 if has('nvim')
@@ -187,11 +178,15 @@ if has('nvim')
 endif
 
 Plug 'vimwiki/vimwiki'
-
 let g:vimwiki_list = [{
     \ 'path': '~/wiki',
     \ 'ext': '.md',
 \ }]
+let g:vimwiki_key_mappings = {
+            \'table_mappings': 0,
+            \'table_format': 0,
+            \'html': 0,
+            \}
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_markdown_link_ext = 1
 
