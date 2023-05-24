@@ -21,7 +21,6 @@ return require('packer').startup(function(use)
   use("theprimeagen/harpoon")
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
-
   use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
@@ -41,6 +40,7 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
       {'L3MON4D3/LuaSnip'},     -- Required
   }
+
 }
 
   use("github/copilot.vim")
@@ -48,6 +48,8 @@ return require('packer').startup(function(use)
   -- use("folke/zen-mode.nvim")
   -- use("eandrju/cellular-automaton.nvim")
   -- use("laytan/cloak.nvim")
+
+  use("vimwiki/vimwiki")
 
 end)
 

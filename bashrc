@@ -82,7 +82,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:/usr/local/go/bin
 
 # Rust
-export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
 
 # Others
 
@@ -111,3 +111,5 @@ if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc' ]; then
 
 export PNPM_HOME="/Users/hyunchelkim/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+export PATH="$PATH:/Users/hyunchelkim/.foundry/bin"
