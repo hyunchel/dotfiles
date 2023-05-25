@@ -5,6 +5,8 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+export PROMPT="%1~ %(?.%F{green}%#%f.%F{red}%#%f) "
+
 # alias
 alias ..='cd ..'
 alias ...='cd ../..'
