@@ -28,11 +28,11 @@ return require('packer').startup(function(use)
           -- LSP Support
           {'neovim/nvim-lspconfig'},             -- Required
           {                                      -- Optional
-          'williamboman/mason.nvim',
-          run = function()
-              pcall(vim.cmd, 'MasonUpdate')
-          end,
-      },
+              'williamboman/mason.nvim',
+              run = function()
+                  pcall(vim.cmd, 'MasonUpdate')
+              end,
+          },
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
       -- Autocompletion
@@ -50,6 +50,9 @@ return require('packer').startup(function(use)
   -- use("laytan/cloak.nvim")
 
   use("vimwiki/vimwiki")
+  use("tools-life/taskwiki")
+
+  use("fatih/vim-go")
 
 end)
 
