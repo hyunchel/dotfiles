@@ -77,3 +77,8 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# kubectl
+export SAVED_KUBECONFIG=${KUBECONFIG}
+export KUBECONFIG=${HOME}/.kube/vke-279cf2c8-9430-46fe-8ff1-6b80bec45f66.yaml:${HOME}/.kube/vke-85d695e9-e0cd-4a0d-ac5d-63112e4f5882.yaml:${HOME}/.kube/vke-c1f6be16-6876-4ac3-80c0-229a91dfe005.yaml
+alias k='kubectl'
