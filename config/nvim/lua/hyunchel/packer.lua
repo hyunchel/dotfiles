@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   -- use("laytan/cloak.nvim")
 
   use("vimwiki/vimwiki")
-  use("tools-life/taskwiki")
+  -- use("tools-life/taskwiki")
 
   use("fatih/vim-go")
 
