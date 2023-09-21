@@ -1,20 +1,20 @@
 font:
   normal:
-    family: Hack
+    family: Menlo
     style: Regular
 
   bold:
-    family: Hack
+    family: Menlo
     style: Bold
 
   italic:
-    family: Hack
+    family: Menlo
     style: Italic
 
   bold_italic:
-    family: Hack
+    family: Menlo
     style: Bold Italic
-  size: 14
+  size: 16
 
 # Colors (New Moon)
 colors:
