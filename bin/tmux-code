@@ -1,6 +1,6 @@
 #! /usr/bin/env sh 
 targetDir="$PWD/$1"
-session="$1"
+session="code"
 
 tmux start-server
 

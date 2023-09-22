@@ -1,0 +1,33 @@
+#! /usr/bin/env sh 
+session="archlinux"
+
+tmux start-server
+
+tmux new-session -d -s $session -n me
+tmux send-keys "cd ~/;zsh" C-m
+
+tmux new-window -n make
+tmux send-keys "cd ~/;zsh" C-m
+
+tmux new-window -n dot
+tmux send-keys "cd ~/code/dotfiles;zsh" C-m
+
+tmux new-window -n wiki
+tmux send-keys "cd ~/wiki;zsh" C-m
+
+tmux new-window -n espresso
+tmux send-keys "zsh;espresso" C-m
+
+tmux new-window -n apps
+tmux send-keys "pulseaudio --start" C-m
+tmux split-window -h
+tmux send-keys "firefox" C-m
+tmux split-window -v
+tmux send-keys "discord" C-m
+tmux select-pane -t 0
+tmux split-window -h
+tmux send-keys "ls" C-m
+
+tmux select-window -t me
+
+tmux attach -t $session
