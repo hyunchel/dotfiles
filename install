@@ -15,7 +15,7 @@ if [ "$PLATFORM" = Linux ]; then
     ln -sfv "$BASE/config/xmonad/xmonad.hs" ~/.config/xmonad/xmonad.hs
     ln -sfv "$BASE/config/xmobar/xmobarrc" ~/.config/xmobar/xmobarrc
     mkdir -p ~/.config/alarcritty
-    ln -sfv "$BASE/config/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
+    ln -sfv "$BASE/config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 fi
 
 # Configs
