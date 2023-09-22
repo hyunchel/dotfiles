@@ -3,7 +3,7 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
-return require('packer').startup({function(use)
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -55,7 +55,8 @@ return require('packer').startup({function(use)
   -- use("tools-life/taskwiki")
 
   use("fatih/vim-go")
+  use("junegunn/fzf", {["do"] = function() vim.fn["fzf#install"]() end})
+  use("junegunn/fzf.vim")
 
-end,
-config = {}})
+end)
 
