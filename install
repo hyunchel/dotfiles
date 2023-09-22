@@ -4,11 +4,14 @@ BASE=$(pwd)
 PLATFORM=$(uname -s)
 
 # dotfiles
-ln -sfv "$BASE/bashrc" ~/.bash_profile
+# ln -sfv "$BASE/bashrc" ~/.bash_profile
 # ln -sfv "$BASE/bash_profile" ~/.bash_profile
-ln -sfv "$BASE/inputrc" ~/.inputrc
-ln -sfv "$BASE/vimrc" ~/.vimrc
-ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
+# ln -sfv "$BASE/inputrc" ~/.inputrc
+ln -sfv "$BASE/zshrc" ~/.zshrc
+ln -sfv "$BASE/zshenv" ~/.zshenv
+ln -sfv "$BASE/zsh" ~/.zsh
+# ln -sfv "$BASE/vimrc" ~/.vimrc
+# ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitignore" ~/.gitignore
 if [ "$PLATFORM" = Linux ]; then
