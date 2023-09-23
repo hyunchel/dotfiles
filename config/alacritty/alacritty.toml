@@ -23,20 +23,20 @@ background = "#2D2D2D"
 foreground = "#B3B9C5"
 
 [font]
-size = 16
+size = 14
 
 [font.bold]
-family = "Menlo"
+family = "Hack"
 style = "Bold"
 
 [font.bold_italic]
-family = "Menlo"
+family = "Hack"
 style = "Bold Italic"
 
 [font.italic]
-family = "Menlo"
+family = "Hack"
 style = "Italic"
 
 [font.normal]
-family = "Menlo"
+family = "Hack"
 style = "Regular"
