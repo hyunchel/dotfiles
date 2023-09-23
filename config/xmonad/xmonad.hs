@@ -10,7 +10,7 @@ import XMonad.Util.Loggers
 
 main :: IO ()
 main = xmonad
-     . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) defToggleStrutsKey
+     . withEasySB (statusBarProp "xmobar ~/.config/xmonad/xmobarrc" (pure myXmobarPP)) defToggleStrutsKey
      $ myConfig
 
 myConfig = def
@@ -35,8 +35,9 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 
 myStartupHook :: X ()
 myStartupHook = do
+    spawn "fcitx5 -d" 
+    spawn "pulseaudio --start"
     spawn "firefox"
-    spawn "fcitx5 -d &"
 
 myXmobarPP :: PP
 myXmobarPP = def

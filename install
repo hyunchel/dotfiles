@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 BASE=$(pwd)
 PLATFORM=$(uname -s)
@@ -7,16 +7,17 @@ PLATFORM=$(uname -s)
 # ln -sfv "$BASE/bashrc" ~/.bash_profile
 # ln -sfv "$BASE/bash_profile" ~/.bash_profile
 # ln -sfv "$BASE/inputrc" ~/.inputrc
+# ln -sfv "$BASE/vimrc" ~/.vimrc
+# ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/zshrc" ~/.zshrc
 ln -sfv "$BASE/zshenv" ~/.zshenv
 ln -sfv "$BASE/zsh" ~/.zsh
-# ln -sfv "$BASE/vimrc" ~/.vimrc
-# ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitignore" ~/.gitignore
 if [ "$PLATFORM" = Linux ]; then
+    mkdir -p ~/.config/xmonad
     ln -sfv "$BASE/config/xmonad/xmonad.hs" ~/.config/xmonad/xmonad.hs
-    ln -sfv "$BASE/config/xmobar/xmobarrc" ~/.config/xmobar/xmobarrc
+    ln -sfv "$BASE/config/xmonad/xmobar.hs" ~/.config/xmonad/xmobar.hs
     mkdir -p ~/.config/alarcritty
     ln -sfv "$BASE/config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 fi
@@ -29,19 +30,18 @@ ln -sfv "$BASE/config/mycli/config" ~/.myclirc
 ln -sfv "$BASE/config/nvim/init.vim" ~/.config/nvim/init.vim
 ln -sfv "$BASE/bin/" ~/bin
 
-
 cp "$BASE/gitconfig" ~/.gitconfig
 cp "$BASE/ext/on-modify.timewarrior" ~/.task/hooks/
 
 # Vim
-rm -rf ~/.vim/colors
-rm -rf ~/.vim/plugin
-ln -sfv "$BASE/colors" ~/.vim/colors
-ln -sfv "$BASE/plugin" ~/.vim/plugin
+# rm -rf ~/.vim/colors
+# rm -rf ~/.vim/plugin
+# ln -sfv "$BASE/colors" ~/.vim/colors
+# ln -sfv "$BASE/plugin" ~/.vim/plugin
 
 # Install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Git hooks
 rm -rf ~/.git_template
@@ -50,14 +50,14 @@ git config --global init.templatedir '~/.git_template'
 git config --global alias.ctags '!.git/hooks/ctags'
 
 # git-prompt
-if [ ! -e ~/.git-prompt.sh ]; then
-	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
-fi
+# if [ ! -e ~/.git-prompt.sh ]; then
+#    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+# fi
 
 # git-completion
-if [ ! -e ~/.git-completion.bash ]; then
-	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-fi
+# if [ ! -e ~/.git-completion.bash ]; then
+#    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+# fi
 
 if [ "$PLATFORM" = Linux ]; then
     # nvm
@@ -83,8 +83,9 @@ if [ "$PLATFORM" = Darwin ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
     brew install \
-       cmake mono
-       bash-completion@2 \
+       cmake mono \
+       # bash-completion@2 \
+       # iterm2 
        vim tmux go python \
        ripgrep \
        git wget mosh jq tree pgcli \
@@ -92,7 +93,7 @@ if [ "$PLATFORM" = Darwin ]; then
        redis pgcli mycli \
        httpie kubernetes-cli kubernetes-helm kubectx \
        1password-cli \
-       iterm2 neovim \
+       neovim \
        rust-analyzer
 
     brew install fzf
@@ -100,5 +101,5 @@ if [ "$PLATFORM" = Darwin ]; then
 
     brew install --cask karabiner-elements caffeine hammerspoon
     brew install --cask ngrok
-    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+    # brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi
