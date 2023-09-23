@@ -70,7 +70,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
-export PATH="$PATH:/$HOME/.foundry/bin"
+export PATH="$PATH:$HOME/.foundry/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -89,3 +89,4 @@ export ZSH_GIT_PROMPT_ENABLE_SECONDARY=1
 export ZSH_GIT_PROMPT_SHOW_STASH=1
 export ZSH_GIT_PROMPT_FORCE_BLANK=1
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
+fpath+=${ZDOTDIR:-~}/.zsh_functions
