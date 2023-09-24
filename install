@@ -4,20 +4,13 @@ BASE=$(pwd)
 PLATFORM=$(uname -s)
 
 # dotfiles
-# ln -sfv "$BASE/bashrc" ~/.bash_profile
-# ln -sfv "$BASE/bash_profile" ~/.bash_profile
-# ln -sfv "$BASE/inputrc" ~/.inputrc
-# ln -sfv "$BASE/vimrc" ~/.vimrc
-# ln -sfv "$BASE/ideavimrc" ~/.ideavimrc
 ln -sfv "$BASE/zshrc" ~/.zshrc
 ln -sfv "$BASE/zshenv" ~/.zshenv
 ln -sfv "$BASE/zsh" ~/.zsh
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitignore" ~/.gitignore
+ln -sfv "$BASE/xinitrc" ~/.xinitrc
 if [ "$PLATFORM" = Linux ]; then
-    mkdir -p ~/.config/xmonad
-    ln -sfv "$BASE/config/xmonad/xmonad.hs" ~/.config/xmonad/xmonad.hs
-    ln -sfv "$BASE/config/xmonad/xmobar.hs" ~/.config/xmonad/xmobar.hs
     mkdir -p ~/.config/alarcritty
     ln -sfv "$BASE/config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 fi
