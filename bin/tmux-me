@@ -3,7 +3,7 @@ session="me"
 
 tmux start-server
 
-tmux new-session -d -s $session -n me
+tmux new-session -A -s $session -n wiki
 tmux send-keys "cd ~/;zsh" C-m
 
 tmux new-window -n make
