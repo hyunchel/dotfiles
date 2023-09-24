@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+BASE=$(pwd)
+PLATFORM=$(uname -s)
+
+# Install Arc theme
+git clone https://github.com/horst3180/arc-icon-theme --depth 1
+sudo cp -r arc-icon-theme/Arc /usr/share/icons
+
+# Install awesome wm
+sudo pacman -S awesome --noconfirm
+mkdir -p ~/.config/awesome
+ln -s $BASE/awesome/rc.lua ~/.config/awesome/rc.lua
+ln -s $BASE/awesome/theme.lua ~/.config/awesome/theme.lua
+
+# Clone awesome wm widgets
+git clone https://github.com/streetturtle/awesome-wm-widgets.git $HOME/.config/awesome/awesome-wm-widgets
+git clone https://github.com/lcpz/lain.git $HOME/.config/awesome/lain
+git clone https://github.com/lcpz/awesome-copycats.git $HOME/.config/awesome/awesome-copycats
