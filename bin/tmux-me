@@ -1,23 +1,22 @@
 #! /usr/bin/env sh 
 session="me"
 
-tmux start-server
+# check for existing session
+err=$(tmux has-session -t $session)
+if [ "$err" = "1" ]; then
+    # create a new session
+    tmux new-session -s $session -n code
+    tmux new-window -n make
+    tmux new-window -n dot
+    tmux send-keys "cd ~/code/dotfiles" C-m
+    tmux new-window -n wiki
+    tmux send-keys "cd ~/wiki" C-m
+    tmux new-window -n espresso
+    tmux send-keys "espresso" C-m
+    tmux select-window -t wiki
+    tmux attach -t $session
+    exit
+fi
 
-tmux new-session -A -s $session -n wiki
-tmux send-keys "cd ~/;zsh" C-m
-
-tmux new-window -n make
-tmux send-keys "cd ~/;zsh" C-m
-
-tmux new-window -n dot
-tmux send-keys "cd ~/code/dotfiles;zsh" C-m
-
-tmux new-window -n wiki
-tmux send-keys "cd ~/wiki;zsh" C-m
-
-tmux new-window -n espresso
-tmux send-keys "zsh;espresso" C-m
-
-tmux select-window -t me
-
+# attach to existing session
 tmux attach -t $session
