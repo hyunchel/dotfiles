@@ -12,6 +12,7 @@ sudo pacman -S awesome --noconfirm
 mkdir -p ~/.config/awesome
 ln -s $BASE/awesome/rc.lua ~/.config/awesome/rc.lua
 ln -s $BASE/awesome/theme.lua ~/.config/awesome/theme.lua
+ln -s $BASE/awesome/autorun.lua ~/.config/awesome/autorun.lua
 
 # Clone awesome wm widgets
 git clone https://github.com/streetturtle/awesome-wm-widgets.git $HOME/.config/awesome/awesome-wm-widgets

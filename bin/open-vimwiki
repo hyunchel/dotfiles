@@ -1,0 +1,3 @@
+#! /usr/bin/env sh 
+pushd $HOME/wiki
+vim index.md

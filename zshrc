@@ -5,14 +5,13 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-export PROMPT="%1~ %(?.%F{green}%#%f.%F{red}%#%f) "
+# export PROMPT="%1~ %(?.%F{green}%#%f.%F{red}%#%f) "
 
 # alias
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../../'
+alias ..='cd ..;ll'
+alias ...='cd ../..;ll'
+alias ....='cd ../../../;ll'
 alias vim='nvim'
-alias tmux='TERM=xterm-256color tmux'
 alias ll='ls -la'
 alias mv='mv -i'
 
@@ -71,6 +70,7 @@ export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.foundry/bin"
+eval "$(luarocks path --bin)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

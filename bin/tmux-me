@@ -3,9 +3,9 @@ session="me"
 
 # check for existing session
 err=$(tmux has-session -t $session)
-if [ "$err" = "1" ]; then
+if [ $? -eq 1 ]; then
     # create a new session
-    tmux new-session -s $session -n code
+    tmux new-session -d -s $session -n code
     tmux new-window -n make
     tmux new-window -n dot
     tmux send-keys "cd ~/code/dotfiles" C-m
@@ -14,8 +14,6 @@ if [ "$err" = "1" ]; then
     tmux new-window -n espresso
     tmux send-keys "espresso" C-m
     tmux select-window -t wiki
-    tmux attach -t $session
-    exit
 fi
 
 # attach to existing session

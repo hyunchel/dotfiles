@@ -212,6 +212,10 @@ theme.spotifywidget = spotify_widget({
     show_tooltip = true,
 })
 
+-- custom widgets
+theme.praisewidget = wibox.widget.textbox()
+theme.praisewidget.text = "You are awesome!"
+
 
 return theme
 

@@ -1,20 +1,14 @@
 #! /usr/bin/env sh 
-codedir="$HOME/code"
-session="code"
+session="main"
 
 # check for existing session
 err=$(tmux has-session -t $session)
 if [ $? -eq 1 ]; then
     # create a new session
     tmux new-session -d -s $session -n code
-    tmux send-keys "cd $codedir" C-m
-
     tmux new-window -n make
-    tmux send-keys "cd $codedir" C-m
-
-    tmux new-window -n dot
-    tmux send-keys "cd $codedir/dotfiles" C-m
-
+    tmux new-window -n espresso
+    tmux send-keys "espresso" C-m
     tmux select-window -t code
 fi
 

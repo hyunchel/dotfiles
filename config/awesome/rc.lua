@@ -43,6 +43,9 @@ do
 end
 -- }}}
 
+-- Startup scripts
+-- awful.spawn.with_shell("/home/hyunchel/.config/awesome/autorun.sh")
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/hyunchel/.config/awesome/theme.lua")
@@ -94,10 +97,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "open terminal", terminal }
                                   }
                         })
-
--- custom widgets
-praisewidget = wibox.widget.textbox()
-praisewidget.text = "You are awesome!"
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -174,9 +173,9 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    local names = { "main", "code", "fun", "4", "5"}
+    local names = { "main", "code", "wiki", "4", "5", "6", "7", "8", "9"}
     local l = awful.layout.suit -- Just to save some typing: use an alias.
-    local layouts = { l.tile, l.tile, l.tile, l.fair, l.maz, l.floating, l.left, l.tile, l.tile }
+    local layouts = { l.tile, l.tile, l.tile, l.fair, l.maz, l.tile, l.tile, l.tile, l.tile }
     awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
@@ -212,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
-            praisewidget,
+            beautiful.praisewidget,
             s.mytaglist,
             s.mypromptbox,
             beautiful.cpuicon,
@@ -510,14 +509,32 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
-    -- Add titlebars to normal clients and dialogs
+    -- Disable titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set terminals
+    { rule = { class = "alacritty-main" },
+        properties = { screen = 1, tag = "main" } },
+    { rule = { class = "alacritty-code" },
+        properties = { screen = 1, tag = "code" } },
+    { rule = { class = "alacritty-wiki" },
+        properties = { screen = 1, tag = "wiki" } },
+
+    -- Set Firefox to always map on the tag named "main" on screen 1.
+    { rule = { class = "firefox-main" },
+        properties = { screen = 1, tag = "main" } },
+    { rule_any = { class = { "firefox-research-1", "firefox-research-2", "firefox-research-3" } },
+        properties = { screen = 1, tag = "4" } },
+
+    -- Thunderbird and Discord
+    { rule_any = { { class = { "discord", "thunderbird" } } },
+        properties = { screen = 1, tag = "5" } },
+
+    -- Monitoring
+    { rule = { class = "alacritty-monitoring" },
+        properties = { screen = 1, tag = "9" } },
 }
 -- }}}
 
@@ -583,4 +600,7 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- Startup programs
+awful.spawn.with_shell("$HOME/.config/awesome/autorun.sh")
 -- }}}
