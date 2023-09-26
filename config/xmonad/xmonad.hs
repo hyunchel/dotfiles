@@ -35,9 +35,7 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawn "fcitx5 -d" 
-    spawn "pulseaudio --start"
-    spawn "firefox"
+    spawn "alacritty -e tmux-me"
 
 myXmobarPP :: PP
 myXmobarPP = def
