@@ -10,3 +10,7 @@ firefox -P default-release --class firefox-main &
 firefox -P research-1 --class firefox-research-1 &
 firefox -P research-2 --class firefox-research-2 &
 firefox -P research-3 --class firefox-research-3 &
+
+spotify-launcher &
+discord &
+thunderbird &
