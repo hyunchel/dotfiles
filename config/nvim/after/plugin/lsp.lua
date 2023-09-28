@@ -1,9 +1,5 @@
-local lsp = require('lsp-zero').preset({})
-
-lsp.ensure_installed({
-	'tsserver',
-	'eslint',
-	'rust_analyzer',
+local lsp = require('lsp-zero').preset({
+    name = 'recommended',
 })
 
 local cmp = require('cmp')
@@ -15,19 +11,18 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
--- XXX what is sign icon?
--- lsp.set_preference({ sign_icons = {} })
-
 lsp.setup_nvim_cmp({
 	mappings = cmp_mappings,
 })
 
--- some default
 lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
-
+  lsp.default_keymaps({
+      buffer = bufnr,
+      exclude = {'<F2>', '<F3>', '<F4>'},
+  })
 end)
 
+--[[
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
@@ -48,8 +43,28 @@ lsp.on_attach(function(client, bufnr)
 
   -- vim.keymap.set("n", "test", function() print("test") end, opts)
 end)
+--]]
 
--- Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lsp.set_sign_icons = ({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+})
+
+
+-- mason
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    'rust_analyzer',
+    'lua_ls',
+    'gopls',
+  },
+  handlers = {
+    lsp.default_setup,
+  }
+})
 
 lsp.setup()
