@@ -20,6 +20,12 @@ lsp.on_attach(function(client, bufnr)
       buffer = bufnr,
       exclude = {'<F2>', '<F3>', '<F4>'},
   })
+
+  -- custom bindings
+  vim.keymap.set('n', 'grr', '<cmd>Telescope lsp_references<cr>', {buffer = bufnr})
+  vim.keymap.set('n', 'qf', '<cmd>Telescope quickfix<cr>', {buffer = bufnr})
+  vim.keymap.set('n', 'qfh', '<cmd>Telescope quickfixhistory<cr>', {buffer = bufnr})
+  vim.keymap.set('n', '<leader>ll', '<cmd>Telescope loclist<cr>', {buffer = bufnr})
 end)
 
 --[[
