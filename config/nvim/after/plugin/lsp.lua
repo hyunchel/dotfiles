@@ -22,34 +22,13 @@ lsp.on_attach(function(client, bufnr)
   })
 
   -- custom bindings
-  vim.keymap.set('n', 'grr', '<cmd>Telescope lsp_references<cr>', {buffer = bufnr})
-  vim.keymap.set('n', 'qf', '<cmd>Telescope quickfix<cr>', {buffer = bufnr})
-  vim.keymap.set('n', 'qfh', '<cmd>Telescope quickfixhistory<cr>', {buffer = bufnr})
-  vim.keymap.set('n', '<leader>ll', '<cmd>Telescope loclist<cr>', {buffer = bufnr})
+  vim.keymap.set("n", ",gf", vim.lsp.buf.format)
+  vim.keymap.set("n", ",gr", vim.lsp.buf.rename)
+  vim.keymap.set("n", ",ga", vim.lsp.buf.code_action)
+  -- XXX: or we could auto format on save?
+  vim.keymap.set("n", ",gf", vim.lsp.buf.format)
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 end)
-
---[[
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-
-  -- XXX not sure what this is
-  vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-
-  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
-
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-  -- vim.keymap.set("n", "test", function() print("test") end, opts)
-end)
---]]
 
 lsp.set_sign_icons = ({
     error = '✘',
@@ -57,7 +36,6 @@ lsp.set_sign_icons = ({
     hint = '⚑',
     info = '»'
 })
-
 
 -- mason
 require('mason').setup({})
@@ -73,4 +51,9 @@ require('mason-lspconfig').setup({
   }
 })
 
+-- lua specific settings
+local lua_opts = lsp.nvim_lua_ls()
+require('lspconfig').lua_ls.setup(lua_opts)
+
+-- setup
 lsp.setup()

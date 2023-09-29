@@ -12,6 +12,7 @@ alias ..='cd ..;ll'
 alias ...='cd ../..;ll'
 alias ....='cd ../../../;ll'
 alias vim='nvim'
+alias v='vim'
 alias ll='ls -la'
 alias mv='mv -i'
 
