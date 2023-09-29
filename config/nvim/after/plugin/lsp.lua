@@ -22,12 +22,14 @@ lsp.on_attach(function(client, bufnr)
   })
 
   -- custom bindings
-  vim.keymap.set("n", ",gf", vim.lsp.buf.format)
   vim.keymap.set("n", ",gr", vim.lsp.buf.rename)
   vim.keymap.set("n", ",ga", vim.lsp.buf.code_action)
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
   -- XXX: or we could auto format on save?
   vim.keymap.set("n", ",gf", vim.lsp.buf.format)
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+  vim.keymap.set("n", ".,", vim.lsp.buf.document_symbol)
 end)
 
 lsp.set_sign_icons = ({

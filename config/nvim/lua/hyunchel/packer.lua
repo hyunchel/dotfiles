@@ -50,11 +50,7 @@ return require('packer').startup(function(use)
   -- use("folke/zen-mode.nvim")
   -- use("eandrju/cellular-automaton.nvim")
   -- use("laytan/cloak.nvim")
-
   use("vimwiki/vimwiki")
-  -- use("tools-life/taskwiki")
-
-  use("fatih/vim-go")
   use("junegunn/fzf", {["do"] = function() vim.fn["fzf#install"]() end})
   use("junegunn/fzf.vim")
 
