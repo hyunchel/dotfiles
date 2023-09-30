@@ -9,9 +9,9 @@ vim.g.vimwiki_key_mappings = {
     table_format = 0,
     html = 0,
 }
-vim.g.vimwiki_conceallevel = 0
-vim.g.vimwiki_markdown_link_ext = 1
 vim.g.vimwiki_global_ext = 0
+vim.g.vimwiki_conceallevel = 2
+vim.g.vimwiki_markdown_link_ext = 1
 vim.g.vimwiki_folding = 'expr'
 
 -- mappings
