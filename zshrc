@@ -91,3 +91,5 @@ export ZSH_GIT_PROMPT_SHOW_STASH=1
 export ZSH_GIT_PROMPT_FORCE_BLANK=1
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+[ -f "/home/hyunchel/.ghcup/env" ] && source "/home/hyunchel/.ghcup/env" # ghcup-env

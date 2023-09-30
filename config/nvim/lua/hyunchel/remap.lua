@@ -29,12 +29,3 @@ vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
--- vimwiki
-vim.keymap.set("n", "<leader>vwi", "<cmd>VimwikiIndex<CR>")
-vim.keymap.set("n", "<leader>vwd", "<cmd>VimwikiDiaryIndex<CR>")
-vim.keymap.set("n", "<leader>vwmd", "<cmd>VimwikiMakeDiaryNote<CR>")
-vim.keymap.set("n", "<leader>vwgd", "<cmd>VimwikiDiaryGenerateLinks<CR>")
-
--- copilot
-vim.keymap.set("n", "<leader>cp", vim.cmd.Copilot)

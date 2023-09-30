@@ -13,13 +13,10 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  -- use({ 'rose-pine/neovim', as = 'rose-pine' })
-  -- vim.cmd('colorscheme rose-pine')
   use('EdenEast/nightfox.nvim')
   vim.cmd('colorscheme nightfox')
 
   use('nvim-treesitter/nvim-treesitter', { run = 'TSUpdate' })
-  use("nvim-treesitter/playground")
   use("theprimeagen/harpoon")
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
@@ -46,13 +43,7 @@ return require('packer').startup(function(use)
 }
 
   use("github/copilot.vim")
-  -- use("nvim-treesitter/nvim-treesitter-context");
-  -- use("folke/zen-mode.nvim")
-  -- use("eandrju/cellular-automaton.nvim")
-  -- use("laytan/cloak.nvim")
   use("vimwiki/vimwiki")
   use("junegunn/fzf", {["do"] = function() vim.fn["fzf#install"]() end})
   use("junegunn/fzf.vim")
-
 end)
-

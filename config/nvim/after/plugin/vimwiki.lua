@@ -1,3 +1,4 @@
+-- config
 vim.g.vimwiki_list = {{
     path = '~/wiki',
     ext = '.md',
@@ -12,6 +13,12 @@ vim.g.vimwiki_conceallevel = 0
 vim.g.vimwiki_markdown_link_ext = 1
 vim.g.vimwiki_global_ext = 0
 vim.g.vimwiki_folding = 'expr'
+
+-- mappings
+vim.keymap.set("n", "<leader>vwi", "<cmd>VimwikiIndex<CR>")
+vim.keymap.set("n", "<leader>vwd", "<cmd>VimwikiDiaryIndex<CR>")
+vim.keymap.set("n", "<leader>vwmd", "<cmd>VimwikiMakeDiaryNote<CR>")
+vim.keymap.set("n", "<leader>vwgd", "<cmd>VimwikiDiaryGenerateLinks<CR>")
 
 -- reload variables
 vim.fn['vimwiki#vars#init']()
