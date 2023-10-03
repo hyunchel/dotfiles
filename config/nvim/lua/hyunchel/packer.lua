@@ -38,4 +38,5 @@ return require('packer').startup(function(use)
     use("vimwiki/vimwiki")
     use("junegunn/fzf", { ["do"] = function() vim.fn["fzf#install"]() end })
     use("junegunn/fzf.vim")
+    use("fatih/vim-go") -- using this for auto imports...
 end)
