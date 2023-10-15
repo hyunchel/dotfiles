@@ -93,3 +93,11 @@ source ~/.zsh/git-prompt.zsh/git-prompt.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f "/home/hyunchel/.ghcup/env" ] && source "/home/hyunchel/.ghcup/env" # ghcup-env
+
+# zksync
+export ZKSYNC_HOME=/home/hyunchel/code/zksync-era
+export PATH=$ZKSYNC_HOME/bin:$PATH
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
