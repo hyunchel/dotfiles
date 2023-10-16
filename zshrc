@@ -92,7 +92,7 @@ export ZSH_GIT_PROMPT_FORCE_BLANK=1
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-[ -f "/home/hyunchel/.ghcup/env" ] && source "/home/hyunchel/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # zksync
 export ZKSYNC_HOME=/home/hyunchel/code/zksync-era
