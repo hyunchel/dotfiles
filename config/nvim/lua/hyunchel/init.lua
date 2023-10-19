@@ -8,7 +8,7 @@ local hyunchel = vim.api.nvim_create_augroup("hyunchel", {})
 
 -- highlight symbol on cursor position
 -- don't know how to do this elegant yet.
-local lspFilePattern = "*.go,*.rs,*.hs,*.js,*.ts,*.py,*.lua"
+local lspFilePattern = "*.go,*.rs,*.hs,*.js,*.ts,*.lua"
 vim.api.nvim_create_autocmd("CursorHold", {
     group = "hyunchel",
     pattern = lspFilePattern,
