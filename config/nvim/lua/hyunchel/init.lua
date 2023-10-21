@@ -33,3 +33,13 @@ vim.api.nvim_create_autocmd("CursorMoved", {
     end,
     desc="Clear highlights of a symbol on cursor move.",
 })
+
+-- format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "hyunchel",
+    pattern = lspFilePattern,
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+    desc="Format on save.",
+})
