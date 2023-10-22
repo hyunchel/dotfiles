@@ -1,9 +1,9 @@
 -- config
-vim.g.vimwiki_list = {{
+vim.g.vimwiki_list = { {
     path = '~/wiki',
     ext = '.md',
     -- auto_toc = 1,
-}}
+} }
 vim.g.vimwiki_key_mappings = {
     table_mappings = 0,
     table_format = 0,

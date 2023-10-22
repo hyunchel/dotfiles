@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
         vim.lsp.buf.document_highlight()
     end,
-    desc="Highlight symbol on cursor hold.",
+    desc = "Highlight symbol on cursor hold.",
 })
 vim.api.nvim_create_autocmd("CursorHoldI", {
     group = "hyunchel",
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("CursorHoldI", {
     callback = function()
         vim.lsp.buf.document_highlight()
     end,
-    desc="Highlight symbol on cursor hold insert.",
+    desc = "Highlight symbol on cursor hold insert.",
 })
 vim.api.nvim_create_autocmd("CursorMoved", {
     group = "hyunchel",
@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("CursorMoved", {
     callback = function()
         vim.lsp.buf.clear_references()
     end,
-    desc="Clear highlights of a symbol on cursor move.",
+    desc = "Clear highlights of a symbol on cursor move.",
 })
 
 -- format on save
@@ -41,5 +41,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         vim.lsp.buf.format()
     end,
-    desc="Format on save.",
+    desc = "Format on save.",
 })
