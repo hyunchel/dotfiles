@@ -101,3 +101,6 @@ export PATH=$ZKSYNC_HOME/bin:$PATH
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# z
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
