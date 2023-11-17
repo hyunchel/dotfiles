@@ -2,6 +2,7 @@
 vim.g.vimwiki_list = { {
     path = '~/wiki',
     ext = '.md',
+    rx_todo = 'TODO\\|DONE\\|STARTED\\|FIXME\\|FIXED\\|XXX\\|PUNT',
     -- auto_toc = 1,
 } }
 vim.g.vimwiki_key_mappings = {
