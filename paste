@@ -4,4 +4,5 @@ cp ./config/nvim/init.lua $HOME/.config/nvim/init.lua
 cp -r ./config/nvim/lua/hyunchel/* $HOME/.config/nvim/lua/hyunchel/
 cp -r ./config/nvim/after/* $HOME/.config/nvim/after/
 cp -r ./config/nvim/ftplugin/* $HOME/.config/nvim/ftplugin/
+cp -r ./config/nvim/syntax/* $HOME/.config/nvim/syntax/
 cp -r ./config/xmonad/* $HOME/.config/xmonad/

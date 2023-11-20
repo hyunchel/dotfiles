@@ -1,7 +1,18 @@
+-- add noir
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.noir = {
+    install_info = {
+        url = "https://github.com/hhamud/tree-sitter-noir", -- the url for this tree-sitter grammar
+        files = { "src/parser.c", "src/scanner.c" },
+        branch = "main",
+    },
+    filetype = "noir", -- if filetype does not agrees with parser name you can define this field
+}
+
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = { "javascript", "typescript", "rust", "go", "c", "lua", "vim", "vimdoc", "query", "python",
-        "haskell" },
+        "haskell", "noir" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,

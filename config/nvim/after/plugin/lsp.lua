@@ -75,5 +75,6 @@ require('mason-lspconfig').setup({
     }
 })
 
+
 -- setup
 lsp_zero.setup()

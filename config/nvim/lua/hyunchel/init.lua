@@ -5,6 +5,7 @@ require("hyunchel.packer")
 -- autogroups
 -- local hyunchel = vim.api.nvim_create_augroup("hyunchel", { clear = true })
 local hyunchel = vim.api.nvim_create_augroup("hyunchel", {})
+local noir = vim.api.nvim_create_augroup("noir", {})
 
 -- highlight symbol on cursor position
 -- don't know how to do this elegant yet.
@@ -42,4 +43,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format()
     end,
     desc = "Format on save.",
+})
+
+-- noir
+vim.api.nvim_create_autocmd("BufRead", {
+    group = "noir",
+    pattern = "*.nr",
+    callback = function()
+        vim.bo.filetype = "noir"
+    end,
+    desc = "Set filetype to noir.",
 })
