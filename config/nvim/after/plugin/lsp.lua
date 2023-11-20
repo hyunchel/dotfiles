@@ -75,6 +75,19 @@ require('mason-lspconfig').setup({
     }
 })
 
+-- add noir lsp
+local lspconfig = require 'lspconfig'
+local configs = require 'lspconfig.configs'
+if not configs.noir_lsp then
+    configs.noir_lsp = {
+        default_config = {
+            cmd = { 'nargo', 'lsp' },
+            root_dir = lspconfig.util.root_pattern('.git'),
+            filetypes = { 'noir' },
+        },
+    }
+end
+lspconfig.noir_lsp.setup {}
 
 -- setup
 lsp_zero.setup()
