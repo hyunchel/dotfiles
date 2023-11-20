@@ -26,21 +26,16 @@ ln -sfv "$BASE/bin/" ~/bin
 cp "$BASE/gitconfig" ~/.gitconfig
 cp "$BASE/ext/on-modify.timewarrior" ~/.task/hooks/
 
-# Vim
-# rm -rf ~/.vim/colors
-# rm -rf ~/.vim/plugin
-# ln -sfv "$BASE/colors" ~/.vim/colors
-# ln -sfv "$BASE/plugin" ~/.vim/plugin
-
-# Install vim-plug
-# curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-#        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # Git hooks
 rm -rf ~/.git_template
 ln -sfv "$BASE/git_template" ~/.git_template
 git config --global init.templatedir '~/.git_template'
 git config --global alias.ctags '!.git/hooks/ctags'
+
+# zsh-z plugin
+if [ ! -e ~/.zsh/zsh-z.plugin.zsh ]; then
+    curl https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh -o ~/.zsh/zsh-z.plugin.zsh
+fi
 
 # git-prompt
 # if [ ! -e ~/.git-prompt.sh ]; then

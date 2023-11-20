@@ -104,6 +104,7 @@ export PATH=$ZKSYNC_HOME/bin:$PATH
 
 # z
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+[[ -r "$HOME/.zsh/zsh-z.plugin.zsh" ]] && source "$HOME/.zsh/zsh-z.plugin.zsh"
 
 export NARGO_HOME="/Users/hyunchelkim/.nargo"
 
