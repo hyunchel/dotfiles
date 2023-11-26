@@ -95,7 +95,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # zksync
-export ZKSYNC_HOME=/home/hyunchel/code/zksync-era
+export ZKSYNC_HOME=$HOME/code/zksync-era
 export PATH=$ZKSYNC_HOME/bin:$PATH
 
 # tabtab source for packages
@@ -106,6 +106,5 @@ export PATH=$ZKSYNC_HOME/bin:$PATH
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 [[ -r "$HOME/.zsh/zsh-z.plugin.zsh" ]] && source "$HOME/.zsh/zsh-z.plugin.zsh"
 
-export NARGO_HOME="/Users/hyunchelkim/.nargo"
-
+export NARGO_HOME="$HOME/.nargo"
 export PATH="$PATH:$NARGO_HOME/bin"
