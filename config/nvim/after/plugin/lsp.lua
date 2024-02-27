@@ -63,7 +63,6 @@ require('mason-lspconfig').setup({
         'rust_analyzer',
         'lua_ls',
         'gopls',
-        'hls',
     },
     handlers = {
         lsp_zero.default_setup,

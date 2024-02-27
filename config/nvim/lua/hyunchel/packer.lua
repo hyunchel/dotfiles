@@ -20,10 +20,10 @@ return require('packer').startup(function(use)
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
-
-    use { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' }
+    use("folke/trouble.nvim", { requires = "nvim-tree/nvim-web-devicons" })
 
     -- LSP support
+    use { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' }
     use('neovim/nvim-lspconfig')
     use('williamboman/mason.nvim')
     use('williamboman/mason-lspconfig.nvim')
