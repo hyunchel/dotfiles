@@ -1,3 +1,9 @@
+require('telescope').setup({
+    defaults = {
+        file_ignore_patterns = { '.*.min.css', '.*.min.js' },
+    },
+})
+
 local builtin = require('telescope.builtin')
 -- files
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
