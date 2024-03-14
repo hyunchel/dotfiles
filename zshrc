@@ -13,6 +13,7 @@ alias vim='nvim'
 alias v='vim'
 alias ll='ls -la'
 alias mv='mv -i'
+alias python='python3'
 
 # colors
 export LESS='-R --use-color -Dd+r$Du+b'
@@ -97,3 +98,13 @@ export PATH="$PATH:$NARGO_HOME/bin"
 # pywal
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc'; fi
+
+# azure cli
+autoload bashcompinit && bashcompinit
+source $(brew --prefix)/etc/bash_completion.d/az
