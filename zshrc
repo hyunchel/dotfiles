@@ -96,15 +96,15 @@ export NARGO_HOME="$HOME/.nargo"
 export PATH="$PATH:$NARGO_HOME/bin"
 
 # pywal
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc'; fi
+# (cat ~/.cache/wal/sequences &)
+# source ~/.cache/wal/colors-tty.sh
 
 # azure cli
 autoload bashcompinit && bashcompinit
 source $(brew --prefix)/etc/bash_completion.d/az
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/gnis/code/google-cloud-sdk/path.zsh.inc' ]; then . '/home/gnis/code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/gnis/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/gnis/code/google-cloud-sdk/completion.zsh.inc'; fi
