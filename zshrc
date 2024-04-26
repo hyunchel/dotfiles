@@ -16,7 +16,7 @@ alias mv='mv -i'
 alias python='python3'
 # taskwarrior
 alias t='task'
-alias in='task add +in'
+alias tin='task add +in'
 export PS1='$(task +in +PENDING count) '$PS1
 
 # tickle
@@ -25,7 +25,7 @@ tickle () {
     shift
     in +tickle wait:$deadline $@
 }
-alias tick=tickle
+alias tt=tickle
 
 # usage: tick monday Put the office plants into the sunlight
 # alias think='tickle +1d'
@@ -44,9 +44,9 @@ read_and_review (){
     task "$id" annotate "$link"
 }
 
-alias rnr=read_and_review
+alias trnr=read_and_review
 # look into something
-alias rnd='task add +rnd +next +@computer +@online'
+alias trnd='task add +rnd +next +@computer +@online'
 
 
 # colors
