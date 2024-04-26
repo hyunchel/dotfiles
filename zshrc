@@ -14,6 +14,40 @@ alias v='vim'
 alias ll='ls -la'
 alias mv='mv -i'
 alias python='python3'
+# taskwarrior
+alias t='task'
+alias in='task add +in'
+export PS1='$(task +in +PENDING count) '$PS1
+
+# tickle
+tickle () {
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+alias tick=tickle
+
+# usage: tick monday Put the office plants into the sunlight
+# alias think='tickle +1d'
+
+# link
+webpage_title (){
+    wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null
+}
+
+read_and_review (){
+    link="$1"
+    title=$(webpage_title $link)
+    echo $title
+    descr="\"Read and review: $title\""
+    id=$(task add +next +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+    task "$id" annotate "$link"
+}
+
+alias rnr=read_and_review
+# look into something
+alias rnd='task add +rnd +next +@computer +@online'
+
 
 # colors
 export LESS='-R --use-color -Dd+r$Du+b'
@@ -98,10 +132,6 @@ export PATH="$PATH:$NARGO_HOME/bin"
 # pywal
 # (cat ~/.cache/wal/sequences &)
 # source ~/.cache/wal/colors-tty.sh
-
-# azure cli
-autoload bashcompinit && bashcompinit
-source $(brew --prefix)/etc/bash_completion.d/az
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/gnis/code/google-cloud-sdk/path.zsh.inc' ]; then . '/home/gnis/code/google-cloud-sdk/path.zsh.inc'; fi
