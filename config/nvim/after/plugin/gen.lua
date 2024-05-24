@@ -1,10 +1,10 @@
 require('gen').setup({
     -- same as above
-    model = "zephyr:latest", -- The default model to use.
-    host = "localhost",      -- The host running the Ollama service.
-    port = "11434",          -- The port on which the Ollama service is listening.
-    quit_map = "q",          -- set keymap for close the response window
-    retry_map = "<c-r>",     -- set keymap to re-send the current prompt
+    model = "llama3:70b", -- The default model to use.
+    host = "localhost",   -- The host running the Ollama service.
+    port = "11434",       -- The port on which the Ollama service is listening.
+    quit_map = "q",       -- set keymap for close the response window
+    retry_map = "<c-r>",  -- set keymap to re-send the current prompt
     -- init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
     -- Function to initialize Ollama
     command = function(options)
