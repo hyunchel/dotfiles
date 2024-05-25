@@ -1,21 +1,19 @@
 #! /usr/bin/env sh 
-codedir="$HOME/code"
-session="code"
+session="day"
 
 # check for existing session
 err=$(tmux has-session -t $session)
 if [ $? -eq 1 ]; then
     # create a new session
     tmux new-session -d -s $session -n code
-    tmux send-keys "cd $codedir" C-m
-
     tmux new-window -n make
-    tmux send-keys "cd $codedir" C-m
-
-    tmux new-window -n dot
-    tmux send-keys "cd $codedir/dotfiles" C-m
-
-    tmux select-window -t code
+    tmux new-window -n wiki
+    tmux send-keys "cd ~/wiki" C-m
+    tmux new-window -n todo
+    tmux send-keys "t" C-m
+    tmux select-window -t wiki
+    tmux send-keys "vim" C-m
+    tmux send-keys Space "vwi"
 fi
 
 # attach to existing session
