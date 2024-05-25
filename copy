@@ -11,3 +11,7 @@ cp -r $HOME/.config/nvim/lua/hyunchel/* ./config/nvim/lua/hyunchel/
 cp -r $HOME/.config/nvim/after/* ./config/nvim/after/
 cp -r $HOME/.config/nvim/ftplugin/* ./config/nvim/ftplugin/
 cp -r $HOME/.config/nvim/syntax/* ./config/nvim/syntax/
+
+# alacritty, hyprland, and waybar
+cp -r $HOME/.config/hypr/* ./config/hypr/
+cp -r $HOME/.config/waybar/* ./config/waybar/
