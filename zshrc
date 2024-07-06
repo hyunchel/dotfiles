@@ -14,10 +14,12 @@ alias v='vim'
 alias ll='ls -la'
 alias mv='mv -i'
 alias python='python3'
+
 # taskwarrior
 alias t='task'
+alias tw='task waiting'
 alias tin='task add +in'
-export PS1='$(task +in +PENDING count) '$PS1
+# export PS1='$(task +in +PENDING count) '$PS1
 
 # tickle
 tickle () {
@@ -25,12 +27,43 @@ tickle () {
     shift
     in +tickle wait:$deadline $@
 }
-alias tt=tickle
 
-# usage: tick monday Put the office plants into the sunlight
-# alias think='tickle +1d'
+# usage: tk monday Put the office plants into the sunlight
+alias tk=tickle
 
-# link
+# think should be yes/no question
+# usage: th "Put the office plants into the sunlight"
+alias th='tickle +1d'
+
+# waiting for
+delegate () {
+    task add +waiting $@
+}
+
+# usage: td Sam - pick up the package
+alias td=delegate
+
+# move a task with waiting tag to next tag.
+ping_waiting () {
+    task $1 modify -waiting +next
+}
+
+# usage: tdn 23
+alias tdn=ping_waiting
+
+# move a task with next tag to waiting tag.
+redelegate () {
+    task $1 modify -next +waiting
+}
+
+# usage: tdr 23
+alias tdr=redelegate
+
+# R&D; look into something
+# usage: trnd "look into this"
+alias trnd='task add +rnd +next +@computer +@online'
+
+# read and review a webpage
 webpage_title (){
     wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null
 }
@@ -44,9 +77,24 @@ read_and_review (){
     task "$id" annotate "$link"
 }
 
+# usage: trnr "https://example.com/some-article"
 alias trnr=read_and_review
-# look into something
-alias trnd='task add +rnd +next +@computer +@online'
+
+# print help
+# usage: thelp
+print_help (){
+    echo "thelp: print this help"
+    echo "t: list next actions"
+    echo "tw: list waiting for"
+    echo "tk monday water plant: tickle a task for monday"
+    echo "th buy a gym membership?: tickle a yes/no question for tomorrow"
+    echo "td Sam - carry the ring until he's okay: delegate a task"
+    echo "tdn 23: move waiting task #23 to next action"
+    echo "tdr 23: move next action task #23 to waiting"
+    echo "trnd emacs vs vim?: R&D; look into something"
+    echo "trnr https://some.url.to.article: read and review a webpage"
+}
+alias thelp=print_help
 
 
 # colors
@@ -108,26 +156,38 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zsh git prompt
-export ZSH_GIT_PROMPT_ENABLE_SECONDARY=1
-export ZSH_GIT_PROMPT_SHOW_STASH=1
-export ZSH_GIT_PROMPT_FORCE_BLANK=1
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
+ZSH_GIT_PROMPT_ENABLE_SECONDARY=1
+ZSH_GIT_PROMPT_SHOW_STASH=1
+ZSH_GIT_PROMPT_FORCE_BLANK=1
+ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
+ZSH_THEME_GIT_PROMPT_PREFIX="["
+ZSH_THEME_GIT_PROMPT_SUFFIX="] "
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
+ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%{$fg_bold[yellow]%}⟳ "
+ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%{$fg[red]%}(%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%{$fg[red]%})"
+ZSH_THEME_GIT_PROMPT_BEHIND="↓"
+ZSH_THEME_GIT_PROMPT_AHEAD="↑"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}✖"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}●"
+ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
+
+PROMPT='%B%40<..<%~ %b$(gitprompt)'
+PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{blue}❯%F{cyan}❯%F{green})❯.%F{red}❯❯❯)%f '
+RPROMPT='%F{yellow}$(task status:completed "age < 3d" +next count)%F{white}/%F{white}$(task +next +PENDING count)%F{white}/%F{white}$(task +in +PENDING count)'
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# zksync
-export ZKSYNC_HOME=$HOME/code/zksync-era
-export PATH=$ZKSYNC_HOME/bin:$PATH
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# export PROMPT='$(gitprompt)'
 
 # z
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 [[ -r "$HOME/.zsh/zsh-z.plugin.zsh" ]] && source "$HOME/.zsh/zsh-z.plugin.zsh"
-
-export NARGO_HOME="$HOME/.nargo"
-export PATH="$PATH:$NARGO_HOME/bin"
 
 # pywal
 # (cat ~/.cache/wal/sequences &)
