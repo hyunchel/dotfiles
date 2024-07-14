@@ -180,7 +180,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 
 PROMPT='%B%40<..<%~ %b$(gitprompt)'
 PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{blue}❯%F{cyan}❯%F{green})❯.%F{red}❯❯❯)%f '
-RPROMPT='%F{yellow}$(task status:completed "age < 3d" +next count)%F{white}/%F{white}$(task +next +PENDING count)%F{white}/%F{white}$(task +in +PENDING count)'
+RPROMPT='%F{yellow}$(task end.after:today-3d count)%F{white}/%F{white}$(task +next +PENDING count)%F{white}/%F{white}$(task +in +PENDING count)'
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # export PROMPT='$(gitprompt)'
