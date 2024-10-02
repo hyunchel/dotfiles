@@ -1,16 +1,10 @@
 #!/usr/bin/env zsh
 # create directories
 mkdir -p $HOME/.config/nvim/lua
-mkdir -p $HOME/.config/nvim/after
-mkdir -p $HOME/.config/nvim/ftplugin
-mkdir -p $HOME/.config/nvim/syntax
 
 # copy specific files from ~/.config/nvim to ./config/nvim
 cp $HOME/.config/nvim/init.lua ./config/nvim/init.lua
-cp -r $HOME/.config/nvim/lua/hyunchel/* ./config/nvim/lua/hyunchel/
-cp -r $HOME/.config/nvim/after/* ./config/nvim/after/
-cp -r $HOME/.config/nvim/ftplugin/* ./config/nvim/ftplugin/
-cp -r $HOME/.config/nvim/syntax/* ./config/nvim/syntax/
+cp -r $HOME/.config/nvim/lua/* ./config/nvim/lua/
 
 # alacritty, hyprland, and waybar
 cp -r $HOME/.config/hypr/* ./config/hypr/
