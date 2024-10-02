@@ -19,14 +19,16 @@ alias python='python3'
 alias t='task'
 alias tw='task waiting'
 alias tin='task add +in'
-# export PS1='$(task +in +PENDING count) '$PS1
+# alias tobj='task add +in +obj'
+export PS1='$(task +in +PENDING count) '$PS1
 
 # tickle
-tickle () {
+ttickle () {
     deadline=$1
     shift
     in +tickle wait:$deadline $@
 }
+alias tt=ttickle
 
 # usage: tk monday Put the office plants into the sunlight
 alias tk=tickle
@@ -95,7 +97,6 @@ print_help (){
     echo "trnr https://some.url.to.article: read and review a webpage"
 }
 alias thelp=print_help
-
 
 # colors
 export LESS='-R --use-color -Dd+r$Du+b'
