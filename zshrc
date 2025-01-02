@@ -147,7 +147,7 @@ if [[ $(uname) == "Darwin" ]]; then
     alias timew='TIMEWARRIORDB=/Users/hyunchelkim/Dropbox/timewarrior timew'
 fi
 
-if [[ $(uname) == "Darwin" ]]; then
+if [[ $(uname) == "Linux" ]]; then
     alias timew='TIMEWARRIORDB=/home/gnis/Dropbox/timewarrior timew'
 fi
 
