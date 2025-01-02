@@ -17,18 +17,18 @@ alias python='python3'
 
 # taskwarrior
 alias t='task'
-alias tw='task waiting'
+alias tw='task +waiting list' # this uses my "waiting" tag instead of the "WAITING" virtual tag
+alias tt='task waiting' # taskwarrior has "WAITING" virtual tag
 alias tin='task add +in'
 # alias tobj='task add +in +obj'
 export PS1='$(task +in +PENDING count) '$PS1
 
 # tickle
-ttickle () {
+tickle () {
     deadline=$1
     shift
-    in +tickle wait:$deadline $@
+    tin +tickle wait:$deadline $@
 }
-alias tt=ttickle
 
 # usage: tk monday Put the office plants into the sunlight
 alias tk=tickle
@@ -88,6 +88,7 @@ print_help (){
     echo "thelp: print this help"
     echo "t: list next actions"
     echo "tw: list waiting for"
+    echo "tt: list ticked tasks"
     echo "tk monday water plant: tickle a task for monday"
     echo "th buy a gym membership?: tickle a yes/no question for tomorrow"
     echo "td Sam - carry the ring until he's okay: delegate a task"
@@ -199,11 +200,11 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # (cat ~/.cache/wal/sequences &)
 # source ~/.cache/wal/colors-tty.sh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/gnis/code/google-cloud-sdk/path.zsh.inc' ]; then . '/home/gnis/code/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/gnis/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/gnis/code/google-cloud-sdk/completion.zsh.inc'; fi
-
 # opam configuration
 [[ ! -r /home/gnis/.opam/opam-init/init.zsh ]] || source /home/gnis/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc'; fi
