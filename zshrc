@@ -143,6 +143,11 @@ unset env
 
 if [[ $(uname) == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    alias timew='TIMEWARRIORDB=/Users/hyunchelkim/Dropbox/timewarrior timew'
+fi
+
+if [[ $(uname) == "Darwin" ]]; then
+    alias timew='TIMEWARRIORDB=/home/gnis/Dropbox/timewarrior timew'
 fi
 
 export PATH="$PATH:$HOME/.local/bin"
