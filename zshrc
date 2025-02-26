@@ -23,6 +23,8 @@ alias tin='task add +in'
 # alias tobj='task add +in +obj'
 export PS1='$(task +in +PENDING count) '$PS1
 
+export MANPAGER='nvim +Man!'
+
 # tickle
 tickle () {
     deadline=$1
