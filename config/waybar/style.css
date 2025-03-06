@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 24px;
+    font-size: 21px;
     min-height: 10px;
 }
 
@@ -139,6 +139,24 @@ button:hover {
 #custom-spotify {
     background: rgba(25, 20, 20, 0.8);
     color: rgba(30, 215, 96, 0.8);
+    min-width: 28px;
+}
+
+#custom-paizo-0 {
+    background: rgba(25, 20, 20, 0.8);
+    color: rgba(215, 190, 140, 0.8); /* faded papyrus */
+    min-width: 28px;
+}
+
+#custom-paizo-1 {
+    background: rgba(25, 20, 20, 0.8);
+    color: rgba(255, 140, 0, 0.9); /* vibrant amber */
+    min-width: 28px;
+}
+
+#custom-paizo-2 {
+    background: rgba(25, 20, 20, 0.8);
+    color: rgba(255, 215, 0, 1.0); /* royal gold */
     min-width: 28px;
 }
 
