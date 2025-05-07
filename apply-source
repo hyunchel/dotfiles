@@ -2,6 +2,7 @@
 # paste specific files from ./config/nvim to ~/.config/nvim
 cp ./config/nvim/init.lua $HOME/.config/nvim/init.lua
 cp -r ./config/nvim/lua/* $HOME/.config/nvim/lua/
+cp -r ./config/nvim/after/* $HOME/.config/nvim/after/
 
 cp -r ./config/hypr/* $HOME/.config/hypr/
 cp -r ./config/waybar/* $HOME/.config/waybar/

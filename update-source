@@ -5,6 +5,7 @@ mkdir -p $HOME/.config/nvim/lua
 # copy specific files from ~/.config/nvim to ./config/nvim
 cp $HOME/.config/nvim/init.lua ./config/nvim/init.lua
 cp -r $HOME/.config/nvim/lua/* ./config/nvim/lua/
+cp -r $HOME/.config/nvim/after/* ./config/nvim/after/
 
 # alacritty, hyprland, and waybar
 cp -r $HOME/.config/hypr/* ./config/hypr/
