@@ -142,21 +142,44 @@ button:hover {
     min-width: 28px;
 }
 
-#custom-paizo-0 {
+#custom-paizo-yesterday {
     background: rgba(25, 20, 20, 0.8);
     color: rgba(215, 190, 140, 0.8); /* faded papyrus */
     min-width: 28px;
 }
 
-#custom-paizo-1 {
+#custom-paizo-today {
     background: rgba(25, 20, 20, 0.8);
     color: rgba(255, 140, 0, 0.9); /* vibrant amber */
     min-width: 28px;
 }
 
-#custom-paizo-2 {
+#custom-paizo-target {
     background: rgba(25, 20, 20, 0.8);
     color: rgba(255, 215, 0, 1.0); /* royal gold */
+    min-width: 28px;
+}
+
+#custom-skopos-0 {
+    background: rgba(25, 20, 20, 0.8);
+    color: rgba(66, 133, 244, 1); /* vibrant blue */
+    min-width: 28px;
+}
+
+#custom-skopos-1 {
+    background: rgba(25, 20, 20, 0.8);
+    color: rgba(52, 168, 83, 0.85); /* vibrant green */
+    min-width: 28px;
+}
+
+#custom-skopos-2 {
+    background: rgba(25, 20, 20, 0.8);
+    color: rgba(251, 188, 5, 0.7); /* vibrant yellow */
+    min-width: 28px;
+}
+
+#custom-askesis {
+    color: rgba(251, 188, 5, 1.0); /* vibrant yellow */
     min-width: 28px;
 }
 

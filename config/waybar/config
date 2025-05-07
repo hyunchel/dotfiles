@@ -5,15 +5,15 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["cpu", "memory", "temperature", "network", "custom/spotify", "custom/paizo-0", "custom/paizo-1", "custom/paizo-2"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["idle_inhibitor", "tray", "clock"],
+    "modules-left": ["cpu", "memory", "temperature", "network", "custom/spotify", "custom/paizo-yesterday", "custom/paizo-today", "custom/paizo-target"],
+    "modules-center": ["hyprland/workspaces", "custom/askesis"],
+    "modules-right": ["custom/skopos-0", "custom/skopos-1", "custom/skopos-2", "idle_inhibitor", "tray", "clock"],
     // Modules configuration
     "hyprland/workspaces": {
        "disable-scroll": true,
        "all-outputs": true,
        "warp-on-scroll": false,
-       "format": "{name}: {icon}",
+       "format": "{name}:{icon} ",
        "format-icons": {
            "1": "",
            "2": "",
@@ -88,7 +88,7 @@
         "tooltip": true,
         "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/paizo-0": {
+    "custom/paizo-yesterday": {
         "format": "{icon} {text}",
         "return-type": "json",
         "max-length": 80,
@@ -100,9 +100,9 @@
         "escape": true,
         "tooltip": true,
 		"interval": 60,
-        "exec": "paizo --last"
+        "exec": "paizo --yesterday"
 	},
-    "custom/paizo-1": {
+    "custom/paizo-today": {
         "format": "{icon} {text}",
         "return-type": "json",
         "max-length": 80,
@@ -113,18 +113,72 @@
 		"interval": 60,
         "exec": "paizo"
 	},
-    "custom/paizo-2": {
+    "custom/paizo-target": {
         "format": "{icon} {text}",
         "return-type": "json",
         "max-length": 80,
         "format-icons": {
             // "medal": "󰦇󱌦",
-            "medal": "",
+            // "medal": "",
+            "target": "󰓾",
             "default": "🎜"
         },
         "escape": true,
         "tooltip": true,
 		"interval": 60,
-        "exec": "paizo --ath"
+        "exec": "paizo --target"
+	},
+    "custom/skopos-0": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 80,
+        "format-icons": {
+			"goal": "",
+            "default": "🎜"
+		},
+        "escape": true,
+        "tooltip": true,
+		"interval": 3600,
+        "exec": "skopos -n 0"
+	},
+    "custom/skopos-1": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 80,
+        "format-icons": {
+			"goal": "",
+            "default": "🎜"
+		},
+        "escape": true,
+        "tooltip": true,
+		"interval": 3600,
+        "exec": "skopos -n 1"
+	},
+    "custom/skopos-2": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 80,
+        "format-icons": {
+			"goal": "",
+            "default": "🎜"
+		},
+        "escape": true,
+        "tooltip": true,
+		"interval": 3600,
+        "exec": "skopos -n 2"
+	},
+    "custom/askesis": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 80,
+        "format-icons": {
+			"pending": "",
+			"done": "<span color=\"#fff\"></span>",
+            "default": "🎜"
+		},
+        "escape": true,
+        "tooltip": true,
+		"interval": 60,
+        "exec": "askesis"
 	}
 }
