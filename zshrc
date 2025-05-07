@@ -219,4 +219,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-eval "$(/home/gnis/.local/bin/mise activate zsh)"
+eval "$($HOME/.local/bin/mise activate zsh)"
