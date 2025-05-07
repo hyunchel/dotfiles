@@ -1,4 +1,5 @@
 . "$HOME/.cargo/env"
+export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 
 if [[ $(uname) == "Linux" ]]; then
     # fcitx5 integration

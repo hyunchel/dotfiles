@@ -90,7 +90,7 @@ print_help (){
     echo "thelp: print this help"
     echo "t: list next actions"
     echo "tw: list waiting for"
-    echo "tt: list ticked tasks"
+    echo "tt: list tickled tasks"
     echo "tk monday water plant: tickle a task for monday"
     echo "th buy a gym membership?: tickle a yes/no question for tomorrow"
     echo "td Sam - carry the ring until he's okay: delegate a task"
@@ -210,3 +210,13 @@ if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/home/gnis/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+eval "$(/home/gnis/.local/bin/mise activate zsh)"
