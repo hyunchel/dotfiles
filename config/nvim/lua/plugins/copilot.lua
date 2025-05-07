@@ -11,6 +11,7 @@ return {
 			ocaml = false,
 			c = false,
 			solidity = false,
+			python = false,
 		}
 		-- color suggestion font
 		-- vim.cmd[[highlight CopilotSuggestion guifg=#6fa8dc]]
