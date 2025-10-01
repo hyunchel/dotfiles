@@ -10,46 +10,37 @@ ln -sfv "$BASE/zsh" ~/.zsh
 ln -sfv "$BASE/tmux.conf" ~/.tmux.conf
 ln -sfv "$BASE/gitignore" ~/.gitignore
 ln -sfv "$BASE/xinitrc" ~/.xinitrc
-if [ "$PLATFORM" = Linux ]; then
-    mkdir -p ~/.config/alarcritty
-    ln -sfv "$BASE/config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
-fi
-
-# Configs
-mkdir -p ~/.config/pgcli
-mkdir -p ~/.config/mycli
-mkdir -p ~/.config/kitty
-ln -sfv "$BASE/config/pgcli/config" ~/.config/pgcli/config
-ln -sfv "$BASE/config/mycli/config" ~/.myclirc
-ln -sfv "$BASE/config/kitty/kitty.conf" ~/.config/kitty/kitty.conf
+ln -sfv "$BASE/config/nvim" ~/.config/nvim
 ln -sfv "$BASE/bin/" ~/bin
 
-. "$BASE/bin/apply-source"
+# kitty
+mkdir -p ~/.config/kitty
+ln -sfv "$BASE/config/kitty/kitty.conf" ~/.config/kitty/kitty.conf
 
-cp "$BASE/gitconfig" ~/.gitconfig
+# tmux
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# taskwarrior
+mkdir -p ~/.config/task/hooks
 cp "$BASE/ext/on-modify.timewarrior" ~/.task/hooks/
 
 # Git hooks
+cp "$BASE/gitconfig" ~/.gitconfig
 rm -rf ~/.git_template
 ln -sfv "$BASE/git_template" ~/.git_template
 git config --global init.templatedir '~/.git_template'
 git config --global alias.ctags '!.git/hooks/ctags'
+
+# applies nvim, hypr, waybar local configs to the system
+. "$BASE/apply-source"
 
 # zsh-z plugin
 if [ ! -e ~/.zsh/zsh-z.plugin.zsh ]; then
     curl https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh -o ~/.zsh/zsh-z.plugin.zsh
 fi
 
-# git-prompt
-# if [ ! -e ~/.git-prompt.sh ]; then
-#    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
-# fi
-
-# git-completion
-# if [ ! -e ~/.git-completion.bash ]; then
-#    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-# fi
-
+# Linux
 if [ "$PLATFORM" = Linux ]; then
     # nvm
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -67,7 +58,7 @@ if [ "$PLATFORM" = Linux ]; then
     ~/.fzf/install     
 fi
 
-# Homebrew
+# Darwin
 if [ "$PLATFORM" = Darwin ]; then
     [ -z "$(which brew)" ] &&
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -75,22 +66,16 @@ if [ "$PLATFORM" = Darwin ]; then
 
     brew install \
        cmake mono \
-       # bash-completion@2 \
-       # iterm2 
-       vim tmux go python \
+       neovim tmux go python \
        ripgrep \
-       git wget mosh jq tree pgcli \
+       wget mosh jq tree pgcli \
        gnupg \
        redis pgcli mycli \
-       httpie kubernetes-cli kubernetes-helm kubectx \
-       1password-cli \
-       neovim \
-       rust-analyzer
+       httpie
 
     brew install fzf
     $(brew --prefix)/opt/fzf/install
 
-    brew install --cask karabiner-elements caffeine hammerspoon
+    brew install --cask caffeine
     brew install --cask ngrok
-    # brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 fi
