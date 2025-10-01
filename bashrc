@@ -109,7 +109,7 @@ if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/U
 if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 . "$HOME/.cargo/env"
 
-export PNPM_HOME="/Users/hyunchelkim/Library/pnpm"
+export PNPM_HOME="/Users/hyunchel/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
-export PATH="$PATH:/Users/hyunchelkim/.foundry/bin"
+export PATH="$PATH:/Users/hyunchel/.foundry/bin"

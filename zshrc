@@ -146,7 +146,7 @@ unset env
 
 if [[ $(uname) == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    alias timew='TIMEWARRIORDB=/Users/hyunchelkim/Dropbox/timewarrior timew'
+    alias timew='TIMEWARRIORDB=/Users/hyunchel/Dropbox/timewarrior timew'
 fi
 
 if [[ $(uname) == "Linux" ]]; then
@@ -158,9 +158,6 @@ export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.foundry/bin"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -192,8 +189,6 @@ PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{blue}❯%F{cyan}❯%F{green
 RPROMPT='%F{yellow}$(task end.after:today-3d count)%F{white}/%F{white}$(task +next +PENDING count)%F{white}/%F{white}$(task +in +PENDING count)'
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# export PROMPT='$(gitprompt)'
-
 # z
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 [[ -r "$HOME/.zsh/zsh-z.plugin.zsh" ]] && source "$HOME/.zsh/zsh-z.plugin.zsh"
@@ -202,21 +197,12 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # (cat ~/.cache/wal/sequences &)
 # source ~/.cache/wal/colors-tty.sh
 
-# opam configuration
-[[ ! -r /home/gnis/.opam/opam-init/init.zsh ]] || source /home/gnis/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# eval "$($HOME/.local/bin/mise activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hyunchelkim/code/google-cloud-sdk/completion.zsh.inc'; fi
-
-# pnpm
-export PNPM_HOME="/home/gnis/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-eval "$($HOME/.local/bin/mise activate zsh)"
+if [ -f '/Users/hyunchel/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hyunchel/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

@@ -8,3 +8,5 @@ if [[ $(uname) == "Linux" ]]; then
     export QT_IM_MODULE=fcitx
     export XMODIFIERS=@im=fcitx
 fi
+
+export TASKRC=$HOME/.config/task/taskrc
