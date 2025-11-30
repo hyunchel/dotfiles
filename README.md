@@ -30,7 +30,7 @@ The following files and directories are symlinked or copied by the main `install
 | `config/nvim/` | Symlinked to `~/.config/nvim`, then specific files copied via `apply-source` |
 | `config/kitty/kitty.conf` | Symlinked to `~/.config/kitty/kitty.conf` |
 | `bin/` | Symlinked to `~/bin` |
-| `ext/on-modify.timewarrior` | Copied to `~/.task/hooks/` |
+| `ext/on-modify.timewarrior` | Copied to `~/.task/hooks/` (note: script creates `~/.config/task/hooks` but copies to `~/.task/hooks/`) |
 | `gitconfig` | Copied to `~/.gitconfig` |
 | `git_template/` | Symlinked to `~/.git_template` |
 | `config/hypr/` | Copied via `apply-source` (Linux only) |
@@ -51,7 +51,7 @@ The following files exist in this repository but are **not** installed by the ma
 
 ### Config Directories
 - `config/alacritty/` - Alacritty terminal configuration
-- `config/awesome/` - Awesome WM configuration (use `install-awesome` instead)
+- `config/awesome/` - Awesome WM configuration (note: `install-awesome` script references a non-existent `awesome/` directory instead of `config/awesome/`)
 - `config/fcitx/` - Fcitx input method configuration
 - `config/fcitx5/` - Fcitx5 input method configuration
 - `config/mycli/` - MySQL CLI configuration
