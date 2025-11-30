@@ -27,13 +27,12 @@ The following files and directories are symlinked or copied by the main `install
 | `tmux.conf` | Symlinked to `~/.tmux.conf` |
 | `gitignore` | Symlinked to `~/.gitignore` |
 | `xinitrc` | Symlinked to `~/.xinitrc` |
-| `config/nvim/` | Symlinked to `~/.config/nvim` |
+| `config/nvim/` | Symlinked to `~/.config/nvim`, then specific files copied via `apply-source` |
 | `config/kitty/kitty.conf` | Symlinked to `~/.config/kitty/kitty.conf` |
 | `bin/` | Symlinked to `~/bin` |
 | `ext/on-modify.timewarrior` | Copied to `~/.task/hooks/` |
 | `gitconfig` | Copied to `~/.gitconfig` |
 | `git_template/` | Symlinked to `~/.git_template` |
-| `config/nvim/` | Copied via `apply-source` |
 | `config/hypr/` | Copied via `apply-source` (Linux only) |
 | `config/waybar/` | Copied via `apply-source` (Linux only) |
 
